@@ -1,0 +1,35 @@
+package Vetores;
+
+import java.util.Scanner;
+
+public class Exer4 {
+static Scanner scan = new Scanner(System.in);
+	public static void main(String[] args) {
+		
+		String[] nomes = new String[10];
+		
+		nomes[0] = "Alex";
+		nomes[1] = "João";
+		nomes[2] = "Márcia";
+		nomes[3] = "Pedro";
+		nomes[4] = "Vitor";
+		nomes[5] = "Marcos";
+		nomes[6] = "Eduardo";
+		nomes[7] = "Rodrigo";
+		nomes[8] = "Lucas";
+		nomes[9] = "Carlos";
+		
+		for (int i = 0; i < 1;i++) {
+			System.out.println("Digite um nome");
+			String nome = scan.next();
+			
+			if(nome == nomes[1]) {
+				System.out.println("Achei!");
+			}else {
+				System.out.println("Não achei");
+			}
+			
+		}
+	}
+
+}
