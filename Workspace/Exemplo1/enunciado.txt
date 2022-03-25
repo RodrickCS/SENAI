@@ -1,2 +1,0 @@
-Exemplo de um programa que faz soma
-Exercício com programas que fazer as 4 operações básicas + - * / e %
