@@ -1,0 +1,33 @@
+package Vetores;
+
+import java.util.Scanner;
+
+public class Exer7 {
+	static Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) {
+
+		int[] vetor1 = new int[5];
+		int[] vetor2 = new int[5];
+		boolean encontrou = false;
+
+		for (int i = 0; i < vetor1.length; i++) {
+			System.out.println("Digite um número qualquer para a posição: " + i);
+			vetor1[i] = scan.nextInt();
+		}
+
+		for (int i = 0; i < vetor2.length; i++) {
+			System.out.println("Digite um número qualquer para a posição: " + i);
+			vetor2[i] = scan.nextInt();
+		}
+		for(int i  0)
+		if (vetor1[i] == vetor2[i]) {
+			System.out.println("São iguais");
+		}else {
+			System.out.println("Não são iguais");
+		}
+		
+
+	}
+
+}
