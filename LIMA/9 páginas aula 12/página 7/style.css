@@ -1,0 +1,30 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+.top{
+    height: 150px;
+    width: 100%;
+    background-color: rgb(207,69,69);
+}
+.left{
+    height:700px;
+    width: 40%;
+    background-color:rgb(205,146,146);
+}
+.bottom{
+    height: 230px;
+    width: 100%;
+    background-color: rgb(159,61,61);
+}
+.right{
+    height: 700px;
+    width: 100%;
+    background-color:rgb(117,53,53);
+}
+.div{
+    display: flex;
+}
+h1 , h3{
+    font-size: 40px;
+}

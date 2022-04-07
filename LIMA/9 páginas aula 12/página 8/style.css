@@ -1,0 +1,40 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+.top{
+    padding: 1%;
+    height: 30px;
+    width: 98%;
+    background-color: rgb(207,69,69);
+}
+span{
+    float: right;
+    font-size: 35px;
+    color: white;
+}
+.middle{
+    height: 1012px;
+    width: 100%;
+    background-color:rgb(117,53,53);
+}
+img{
+    border-radius: 30px;
+  margin: 270px 650px auto;
+}
+.bottom{
+    padding: 1%;
+    height: 30px;
+    width: 98%;
+    background-color: rgb(159,61,61);
+}
+.bottoms{
+    height: 40px;
+    width: 340px;
+    border-radius: 100px;
+    background-color: white;
+    float: right;
+}
+h1 , h3{
+    font-size: 40px;
+}

@@ -1,0 +1,75 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.main{
+    height: 738px;
+    width: 100%;
+    background-image: url(../img/wallpaper.jpg);
+}
+.barra{
+    display: flex;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(100,122,127,0.753);
+    align-items: center;
+}
+.finder{
+    padding-right: 1%;
+    color: white;
+    font-size: 22px;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.file{
+    color: rgb(204,210,213);
+    padding-right: 1%;
+    font-size: 19px;  
+    font-family: Arial, Helvetica, sans-serif;
+}
+.edit{
+    padding-right: 1%;
+    color: rgb(204,210,213);
+    font-size: 19px;  
+    font-family: Arial, Helvetica, sans-serif;
+}
+.view{
+    padding-right: 1%;
+    color: rgb(204,210,213);
+    font-size: 19px;   
+    font-family: Arial, Helvetica, sans-serif;
+}
+.go{
+    padding-right: 73%;
+    color:rgb(204,210,213);
+    font-size: 19px;   
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hora{
+    color: rgb(233, 233, 233);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.bottombar{
+    margin-top: 640px;
+    margin-left:500px;
+    height: 59px;
+    width: 790px;
+    background-color: rgba(96, 108, 119, 0.801);
+    border-radius: 19px;
+}
+h1 , h3{
+    font-size: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
