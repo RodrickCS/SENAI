@@ -1,5 +1,6 @@
 package desafio;
 
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import desafio.*;
@@ -70,6 +71,7 @@ public class Main {
 				arq.escrever(info, "Desafio", true);
 
 				ArrayList<String> Divi = arq.ler("Desafio");
+				
 
 				for (String linha : Divi) {
 					String[] temp = linha.split(";");
