@@ -6,44 +6,44 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-import modelo.Cadastro;
+import modelo.Orcamento;
 
 public class DAO {
 
 	BufferedReader br;
 	BufferedWriter bw;
-	private String path = "E:\\SENAI\\WorkSpace\\Trabalho\\Dados\\Trabalho.csv";
+	private String path = "F:\\SENAI\\WorkSpace\\Trabalho\\dados\\dados.csv";
 
-	public ArrayList<Cadastro> ler() {
-		ArrayList<Cadastro> linhas = new ArrayList<>();
-		Cadastro p;
+	public ArrayList<Orcamento> ler() {
+		ArrayList<Orcamento> linhas = new ArrayList<>();
+		Orcamento p;
 		try {
 			br = new BufferedReader(new FileReader(path));
 			String linha = br.readLine();
 			while (linha != null) {
-				p = new Cadastro(linha);
+				p = new Orcamento(linha);
 				linhas.add(p);
 				linha = br.readLine();
 			}
 			br.close();
 
 		} catch (Exception e) {
-
+			System.out.println(e.toString());
 		}
 
 		return linhas;
 
 	}
 
-	public void escrever(ArrayList<Cadastro> linhas) {
+	public void escrever(ArrayList<Orcamento> linhas) {
 		try {
 			bw = new BufferedWriter(new FileWriter(path));
-			for (Cadastro p : linhas) {
+			for (Orcamento p : linhas) {
 				bw.write(p.toCSV());
 			}
 			bw.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.toString());
 		}
 	}
 }
