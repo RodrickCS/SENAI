@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="itens.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Itens de Patrimonio</title>
+</head>
+
+<body onload="carregar()">
+    <header>
+        <h1>Cadastro de Patrimonios</h1>
+        <button onclick="showModal()">Novo</button>
+    </header>
+    <main id="corpo">
+        <div class="card model">
+            <div id="text" class="texto">
+                <p id="ni">Ni: </p>
+                <p id="aquisicao">Aquisição: </p>
+                <p id="denominacao">Denominação: </p>
+                <p id="valor">Valor: R$ </p>
+            </div>
+            <img id="img" src="../docs/assets/default.png" alt="">
+            <div>
+                <button id="del">-</button>
+            </div>
+        </div>
+        <div class="modal model2">
+            <input id="inpNi" type="text" value="Ni">
+            <input id="inpAquisicao" type="text" value="Data Aquisição">
+            <input id="inpDenominacao" type="text" value="Descrição">
+            <input id="inpValor" type="text" value="Valor">
+        </div>
+    </main>
+</body>
+<script src="itens.js"></script>
+
+</html>

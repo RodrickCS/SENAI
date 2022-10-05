@@ -1,0 +1,6 @@
+id_cliente;telefone;nome;logradouro;numero;complemento;bairro;referencia
+1;(19) 99913-5676;Carlos Rodrigues;13912-662;12; Casa A;Riviera Paulista;Casa Geminada
+2;(19) 99563-2697;Armando Pinheiro;56821-887;410;Fundos;Aclimação;Perto da Igreja
+3;(19) 99978-5238;Ana Carvalho;89234-883;2;apto 12;Ibirapuera;Ao Lado do Mercado
+4;(19) 99945-5679;João Gabriel;12342-665;121;Chácara Conceição;Liberdade;Perto do Restaurante
+5;(19) 99913-5680;Pedro Costa;18042-334;90;apto 34;Capão Redondo;De Frente ao Parque

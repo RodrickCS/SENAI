@@ -1,0 +1,11 @@
+id_pizza;sabor;descricao;valor
+1;Calabresa;Molho de tomate, Calabresa, Cebola, Mussarela;30,00 
+2;Portuguesa;Molho de Tomate, Mussarela, Presunto, Tomate em Rodelas, Pimentão, Ovo Cozido, Cebola;40,00 
+3;Marguerita;Molho de Tomate, Mussarela, Tomate em Rodelas, Manjericão;40,00 
+4;Frango c/Catupiry;Molho de Tomate em Rodelas, Frango, Catupiry, Mussarela;35,00 
+5;Mussarela;Molho de Tomate, Mussarela, Tomate em Rodelas;25,00 
+6;Brigadeiro;Chocolate Meio Amargo, Granulado;30,00 
+7;Napolitana;Molho de Tomate, Anchovas, Mussarela;30,00 
+8;Romeu e Julieta;Mussarela, Goiabada Cremosa;35,00 
+9;Creme de Avelã com Frutas;Canela, Mussarela, Goiabada Cremosa, Reqeijão, Banana Fatiada;50,00 
+10;Califórnia;Molho de Tomate, Lombo, Mussarela, Abacaxi em Calda, Pêssego em Calda, Figo em Calda;50,00 
