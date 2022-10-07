@@ -48,3 +48,7 @@ const del = (ni) => {
 function showModal () {
     document.querySelector('.modal').classList.remove('model2')
 }
+
+function closeModal () {
+    document.querySelector('.modal').classList.add('model2')
+}
