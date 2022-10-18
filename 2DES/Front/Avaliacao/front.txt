@@ -1,0 +1,1 @@
+listar depto, excluir depto, listar e atualizar produtos, cadastrar solicitação

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+
+<body onload="carregar()">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a id="home" href="../Home/index.html">Home</a></li>
+                <li id="produtos">Produtos</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <button onclick="showModal()" id="btnCadastrar1">Cadastrar</button>
+
+        <div class="modelo">
+            <div class="clone model">
+                <div style="display: flex;">
+                    <img id="img" alt="imgProd">
+                    <p id="id">Id: </p>
+                    <p id="ni">Ni: </p>
+                    <p id="aquis">Aquisição: </p>
+                    <p id="deno">Denominação: </p>
+                    <p id="valor">Valor: </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal model">
+            <input type="text" placeholder="Ni" id="inpNi">
+            <input type="text" placeholder="Aquisição" id="inpAquis">
+            <input type="text" placeholder="Denominação" id="inpDeno">
+            <input type="text" placeholder="valor" id="inpValor">
+            <input type="text" placeholder="Enviar Imagem" id="inpImg">
+            <div style="display: flex;">
+                <button id="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+                <button id="btnCancelar" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,94 @@
+@import url("../../global/style.css");
+
+#produtos {
+  color: rgba(0, 255, 238, 0.687);
+}
+
+#home:hover {
+  color: rgba(0, 255, 238, 0.687);
+}
+
+#btnCadastrar1 {
+  background: none;
+  border: 3px solid #f8c304;
+  border-radius: 7px;
+  width: 170px;
+  height: 60px;
+  color: #f8c304;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 30px;
+}
+#btnCadastrar1:hover {
+  background: #fff0bc4d;
+}
+.model {
+  display: none;
+  visibility: hidden;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 32px;
+  gap: 28px;
+  width: 464px;
+  height: 538px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  position: absolute;
+}
+input {
+  width: 340px;
+}
+
+#btnCadastrar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 24px;
+  gap: 10px;
+  width: 176px;
+  height: 62px;
+  background: #6c117b;
+  border: 3px solid #6c117b;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
+#btnCancelar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 24px;
+  gap: 10px;
+  width: 176px;
+  height: 62px;
+  background: #6c117b;
+  border: 3px solid #6c117b;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+#btnCancelar:hover {
+  background: #f5f5f5;
+  color: black;
+}
+#btnCadastrar:hover {
+  background: #f5f5f5;
+  color: black;
+}
+
+button {
+  margin: 20px;
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #ddd;
+}

@@ -1,0 +1,14 @@
+@import url("../../global/style.css");
+
+#home {
+  color: rgba(0, 255, 238, 0.687);
+  cursor: pointer;
+}
+
+#produtos:hover {
+  color: rgba(0, 255, 238, 0.687);
+}
+
+h3 {
+  margin-top: 30px;
+}

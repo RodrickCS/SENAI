@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações</title>
+</head>
+<body onload="load()">
+    <header>
+        <nav>
+            <ul>
+                <li><h1>Solicitações</h1></li>
+                <li>Departamentos</li>
+                <li>Produtos</li>
+                <li>Solicitações</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Código do Departamento</th>
+                    <th>Nome do Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="modelo model">
+                    <td id="cod_depto"></td>
+                    <td id="nome_depto"></td>
+                    <td id="excluir"><a onclick="delDepto()">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>

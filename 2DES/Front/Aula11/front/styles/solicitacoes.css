@@ -1,0 +1,11 @@
+@import url("../styles/global.css");
+
+#soli {
+    background-color: rgb(1, 169, 211);
+    height: 40px;   
+    align-items: center;
+}
+
+#depto:hover {
+    background-color: rgb(1, 169, 211);
+}
