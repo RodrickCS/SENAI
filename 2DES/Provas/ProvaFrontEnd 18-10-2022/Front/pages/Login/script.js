@@ -28,7 +28,8 @@ const login = () => {
 
                 window.location.href = '../Home/index.html'
             }
-            
+            encontrei = false
+            alert('user não encontrado')
 
         })
 
