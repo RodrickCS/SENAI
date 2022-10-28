@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 17px;
+}
+
+.model {
+  display: none;
+  visibility: hidden;
+}
+
+.body {
+  background-color: rgb(205, 205, 205);
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+#rightPanel {
+  border-right: 1px solid rgba(221, 221, 221, 0.759);
+}
+
+#btnExcluir {
+  position: absolute;
+  margin-left: 17px;
+  margin-top: -60px;
+}

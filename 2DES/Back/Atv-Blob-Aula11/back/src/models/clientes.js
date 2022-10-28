@@ -2,13 +2,13 @@
 const toCreate = (dados, file) => {
     if (file != null) {
         dados.foto = file.buffer.toString('base64')
-        return `insert into clientes values ('${dados.login}','${dados.nome}','${dados.nascimento}', '${dados.telefone}', '${dados.avatar}')`
+        return `insert into usuarios values ('${dados.login}','${dados.nome}','${dados.nascimento}', '${dados.telefone}', '${dados.avatar}')`
     } else
-        return `insert into clientes values ('${dados.login}','${dados.nome}','${dados.nascimento}', '${dados.telefone}', null)`
+        return `insert into usuarios values ('${dados.login}','${dados.nome}','${dados.nascimento}', '${dados.telefone}', null)`
 }
 
 const toReadAll = () => {
-    return 'select * from clientes order by login'
+    return 'select * from usuarios order by login'
 }
 
 const toAscii = (dados) => {
@@ -18,8 +18,15 @@ const toAscii = (dados) => {
     return dados
 }
 
+const toDel = (dados) => {
+    return `DELETE FROM usuarios WHERE login = '${dados.login}'`
+}
+
+
+
 module.exports = {
     toCreate,
     toReadAll,
-    toAscii
+    toAscii,
+    toDel
 }

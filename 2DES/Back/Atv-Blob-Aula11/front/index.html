@@ -4,34 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
 </head>
 
-<body>
+<body onload="carregar()">
     <header>
         <nav>
             <ul>
                 <h1>
                     Usuários
                 </h1>
-                <button>
+                <button onclick="modal.classList.remove('model');">
                     Novo Usuário
                 </button>
             </ul>
         </nav>
     </header>
     <main>
-        <section>
-            <div>
-                <p>Nome: </p>
-                <p>Login: </p>
-                <p>Nascimento: </p>
-                <p>Telefone: </p>
-                <button>X</button>
+        <div class="clone">
+            <div class="body">
+                <div id="rightPanel">
+                    <p id="nome">Nome: </p>
+                    <p id="login">Login: </p>
+                    <p id="nasc">Nascimento: </p>
+                    <p id="tel">Telefone: </p>
+                </div>
+                <div id="leftPanel">
+                    <img id="img" src="" alt="Imagem Cliente">
+                    <button id="btnExcluir">X</button>
+                </div>
             </div>
-        </section>
+        </div>
+
     </main>
+    <div class="modal model" id="modal">
+        <form action="http://localhost:5000/clientes_blob/clientes" method="post" enctype="multipart/form-data"
+            id="form">
+            <div class="form">
+                <div class="modalHeader">
+                    <h3>Cadastro de clientes</h3>
+                    <button onclick="modal.setAttribute('style', 'display:none');">X</button>
+                </div>
+                <div class="modalBody">
+                    <input type="text" id="inpNome">
+                    <input type="text" id="inpLogin">
+                    <input type="text" id="inpNascimento">
+                    <input type="text" id="inpTelefone">
+                    <input type="file" id="inpImg">
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
+<script src="script.js"></script>
 
 </html>
