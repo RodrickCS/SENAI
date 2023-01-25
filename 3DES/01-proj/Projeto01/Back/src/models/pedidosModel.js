@@ -6,12 +6,16 @@ const readAll = () => {
   return `select * from pedidos`;
 };
 
-const readFim = () => {
-  return 'select * from pedidos where hora_fim <> "00:00:00"';  
+const readChegou = () => {
+  return "select * from vw_chegou";
+};
+
+const readCozinha = () => {
+  return "select * from vw_cozinha";
 };
 
 const readEntregando = () => {
-  return 'select * from pedidos where hora_entrega <> "00:00:00" AND hora_fim = "00:00:00"';
+  return "select * from vw_caminho";
 };
 
 const updateEntregando = (dados) => {
@@ -25,8 +29,9 @@ const updateFim = (dados) => {
 module.exports = {
   create,
   readAll,
-  readFim,
+  readChegou,
   readEntregando,
+  readCozinha,
   updateEntregando,
   updateFim,
 };

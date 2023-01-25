@@ -19,11 +19,23 @@ const readSaiuCozinha = (req, res) => {
       res.json(result).end();
     } else {
       res.status(500).json(err).end();
-    } 
+    }
   });
 };
-const readEntregando = (req, res) => {
-  let string = pedidos.readFim();
+
+const readCozinha = (req, res) => {
+  let string = pedidos.readCozinha();
+  con.query(string, (err, result) => {
+    if (err == null) {
+      res.json(result).end();
+    } else {
+      res.status(500).json(err).end();
+    }
+  });
+};
+
+const readChegou = (req, res) => {
+  let string = pedidos.readChegou();
   con.query(string, (err, result) => {
     if (err == null) {
       res.json(result).end();
@@ -63,4 +75,12 @@ const updateFim = (req, res) => {
   });
 };
 
-module.exports = { readAll, create, updateEntregando, updateFim, readSaiuCozinha, readEntregando };
+module.exports = {
+  readAll,
+  create,
+  updateEntregando,
+  updateFim,
+  readSaiuCozinha,
+  readChegou,
+  readCozinha,
+};

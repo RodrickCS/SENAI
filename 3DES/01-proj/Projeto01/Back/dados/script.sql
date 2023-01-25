@@ -24,16 +24,28 @@ create table pedidos(
 );
 
 
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/01-proj/Projeto01/Back/dados/entregadores.csv'
+create view vw_cozinha as 
+select p.id_pedido, p.cliente, p.endereco, p.produto, p.data, p.hora_pedido, p.hora_entrega, p.hora_fim from pedidos p 
+where p.hora_pedido <> '00:00:00' and hora_entrega = '00:00:00';
+
+create view vw_caminho as
+select p.id_pedido, p.cliente, p.endereco, p.produto, p.data, p.hora_pedido, p.hora_entrega, p.hora_fim from pedidos p 
+where p.hora_entrega <> '00:00:00' and hora_fim = '00:00:00';
+
+create view vw_chegou as
+select p.id_pedido, p.cliente, p.endereco, p.produto, p.data, p.hora_pedido, p.hora_entrega, p.hora_fim from pedidos p 
+where p.hora_fim <> '00:00:00';
+
+LOAD DATA INFILE 'D:/SenaiDocs/01-proj/Projeto01Restaurante/docs/entregadores.csv'
 INTO TABLE entregadores
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'D:/docs/pedidos.csv'
+LOAD DATA INFILE 'D:/SenaiDocs/01-proj/Projeto01Restaurante/docs/pedidos.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
-LINES TERMINATED BY '/r/n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
