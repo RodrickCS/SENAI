@@ -24,14 +24,14 @@ create table pedidos(
 );
 
 
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/01-proj/Projeto01/Back/dados/entregadores.csv'
+LOAD DATA INFILE 'D:/SenaiDocs/01-proj/Projeto01Restaurante/docs/entregadores.csv'
 INTO TABLE entregadores
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/01-proj/Projeto01/Back/dados/pedidos.csv'
+LOAD DATA INFILE 'D:/docs/pedidos.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
