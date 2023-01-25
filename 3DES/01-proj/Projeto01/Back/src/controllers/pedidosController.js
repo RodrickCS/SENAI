@@ -19,7 +19,7 @@ const readSaiuCozinha = (req, res) => {
       res.json(result).end();
     } else {
       res.status(500).json(err).end();
-    }
+    } 
   });
 };
 const readEntregando = (req, res) => {
@@ -37,7 +37,7 @@ const create = (req, res) => {
   let string = pedidos.create(req.body);
   con.query(string, (err, result) => {
     if (err == null) {
-      res.status(201).end();
+      res.status(201).json(result).end();
     } else {
       res.status(400).json(err).end();
     }

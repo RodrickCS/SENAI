@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><h2>Gestão de Entregas</h2></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="pedidoContainer">
+        <div class="left">
+          <p>Cliente:</p>
+          <p>Endereço:</p>
+          <p>Produto:</p>
+          <button id="btGera" onclick="gerarPedido()">Gerar Pedido</button>
+        </div>
+        <div class="right">
+          <input type="text" id="nome" placeholder="Nome..." />
+          <input type="text" id="endereco" placeholder="Endereço..." />
+          <input type="text" id="produto" placeholder="Produto..." />
+        </div>
+      </div>
+      <div class="statusContainer">
+        <div class="naCozinha">
+
+        </div>
+        <div class="aCaminho"></div>
+      </div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
