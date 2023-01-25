@@ -7,12 +7,11 @@ const readAll = () => {
 };
 
 const readFim = () => {
-  return 'select * from pedidos where hora_fim <> "00:00:00"';
-  
+  return 'select * from pedidos where hora_fim <> "00:00:00"';  
 };
 
 const readEntregando = () => {
-  return 'select * from pedidos where hora_entrega <> "00:00:00"';
+  return 'select * from pedidos where hora_entrega <> "00:00:00" AND hora_fim = "00:00:00"';
 };
 
 const updateEntregando = (dados) => {
