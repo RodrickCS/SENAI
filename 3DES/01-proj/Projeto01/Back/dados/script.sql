@@ -49,3 +49,10 @@ FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/01-proj/Projeto01/Back/dados/entregadores.csv'
+INTO TABLE entregadores
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;

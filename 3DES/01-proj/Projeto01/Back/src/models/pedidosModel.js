@@ -18,8 +18,8 @@ const readEntregando = () => {
   return "select * from vw_caminho";
 };
 
-const updateEntregando = (dados) => {
-  return `update pedidos set hora_entrega = curtime() where id_pedido = ${dados.id_pedido}`;
+const updateEntregando = (id_pedido) => {
+  return `update pedidos set hora_entrega = curtime() where id_pedido = ${id_pedido}`;
 };
 
 const updateFim = (dados) => {

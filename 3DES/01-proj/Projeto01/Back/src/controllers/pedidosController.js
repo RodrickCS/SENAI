@@ -57,7 +57,7 @@ const create = (req, res) => {
 };
 
 const updateEntregando = (req, res) => {
-  let string = pedidos.updateEntregando(req.body);
+  let string = pedidos.updateEntregando(req.params);
   con.query(string, (err, result) => {
     if (err == null)
       if (result.affectedRows > 0) res.status(200).end();

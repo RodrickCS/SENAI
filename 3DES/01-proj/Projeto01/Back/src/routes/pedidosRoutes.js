@@ -8,7 +8,7 @@ router.get("/readCozinha", pedidos.readCozinha);
 router.get("/readACaminho", pedidos.readSaiuCozinha);
 router.get("/readChegou", pedidos.readChegou);
 router.post("/create", pedidos.create);
-router.put("/updateEn", pedidos.updateEntregando);
+router.put("/updateEn/:id_pedido", pedidos.updateEntregando);
 router.put("/updateFim", pedidos.updateFim);
 
 module.exports = router;
