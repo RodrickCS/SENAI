@@ -12,7 +12,6 @@ const readAll = (req, res) => {
   });
 };
 
-
 const login = (req, res) => {
   let string = entregadores.login(req.body);
   con.query(string, (err, result) => {
@@ -23,7 +22,5 @@ const login = (req, res) => {
     }
   });
 };
-
-
 
 module.exports = { readAll, login };

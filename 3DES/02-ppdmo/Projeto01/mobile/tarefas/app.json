@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-entrega",
-    "slug": "app-entrega",
+    "name": "tarefas",
+    "slug": "tarefas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
