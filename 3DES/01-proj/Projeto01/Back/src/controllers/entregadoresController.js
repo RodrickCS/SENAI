@@ -12,4 +12,18 @@ const readAll = (req, res) => {
   });
 };
 
-module.exports = { readAll };
+
+const login = (req, res) => {
+  let string = entregadores.login(req.body);
+  con.query(string, (err, result) => {
+    if (err == null) {
+      res.status(200).json(result).end();
+    } else {
+      res.status(500).json(err).end();
+    }
+  });
+};
+
+
+
+module.exports = { readAll, login };

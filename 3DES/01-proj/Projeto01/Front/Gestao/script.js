@@ -75,7 +75,7 @@ function carregarPedidoEntregando() {
       Object.entries(data).forEach((entry) => {
         const [key, value] = entry;
 
-        let novoPedido = document.querySelector(".naCozinha").cloneNode(true);
+        let novoPedido = document.querySelector(".aCaminho").cloneNode(true);
 
         novoPedido.classList.remove("model");
 
@@ -85,7 +85,10 @@ function carregarPedidoEntregando() {
         novoPedido.querySelector(".enderecoCli").innerHTML += value.endereco;
         novoPedido.querySelector(".horarioPedido").innerHTML +=
           value.hora_pedido;
-        novoPedido.querySelector(".data").innerHTML += value.data.split("T")[0];
+        novoPedido.querySelector(".horarioEntrega").innerHTML +=
+          value.hora_entrega;
+        novoPedido.querySelector(".data").innerHTML +=
+          value.data.split("T")[0];
 
         document.querySelector(".aCaminhoContainer").appendChild(novoPedido);
       });

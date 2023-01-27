@@ -1,8 +1,30 @@
 const pedidos = require("../models/pedidosModel");
 const con = require("../dao/bdConnect.js");
 
-const readAll = (req, res) => {
-  let string = pedidos.readAll();
+const readAllPendente = (req, res) => {
+  let string = pedidos.readAllPendente();
+  con.query(string, (err, result) => {
+    if (err == null) {
+      res.json(result).end();
+    } else {
+      res.status(500).json(err).end();
+    }
+  });
+};
+
+const readEntregue = (req, res) => {
+  let string = pedidos.readEntregue();
+  con.query(string, (err, result) => {
+    if (err == null) {
+      res.json(result).end();
+    } else {
+      res.status(500).json(err).end();
+    }
+  });
+};
+
+const readByEntregador = (req, res) => {
+  let string = pedidos.readByEntregador(req.params);
   con.query(string, (err, result) => {
     if (err == null) {
       res.json(result).end();
@@ -34,8 +56,8 @@ const readCozinha = (req, res) => {
   });
 };
 
-const readChegou = (req, res) => {
-  let string = pedidos.readChegou();
+const readEntregador = (req, res) => {
+  let string = pedidos.readEntregador();
   con.query(string, (err, result) => {
     if (err == null) {
       res.json(result).end();
@@ -57,16 +79,18 @@ const create = (req, res) => {
 };
 
 const updateEntregando = (req, res) => {
+  console.log(req.params);
   let string = pedidos.updateEntregando(req.params);
   con.query(string, (err, result) => {
     if (err == null)
       if (result.affectedRows > 0) res.status(200).end();
-      else res.status(404).json(err).end();
-    else res.status(400).json(err).end();
+      else res.status(400).json(err).end();
+    else res.status(404).json(err).end();
   });
 };
 const updateFim = (req, res) => {
-  let string = pedidos.updateFim(req.body);
+  console.log(req.params);
+  let string = pedidos.updateFim(req.params);
   con.query(string, (err, result) => {
     if (err == null)
       if (result.affectedRows > 0) res.status(200).end();
@@ -76,11 +100,13 @@ const updateFim = (req, res) => {
 };
 
 module.exports = {
-  readAll,
+  readAllPendente,
   create,
   updateEntregando,
   updateFim,
   readSaiuCozinha,
-  readChegou,
+  readEntregador,
   readCozinha,
+  readByEntregador,
+  readEntregue
 };

@@ -2,11 +2,19 @@ const create = (dado) => {
   return `insert into pedidos values (default,'${dado.cliente}','${dado.endereco}','${dado.produto}', curdate(), curtime(), default,default,(SELECT FLOOR(RAND()*(4)+1)))`;
 };
 
-const readAll = () => {
-  return `select * from pedidos`;
+const readAllPendente = () => {
+  return `select * from pedidos where hora_fim = '00:00:00' or hora_entrega = '00:00:00'`;
 };
 
-const readChegou = () => {
+const readEntregue = () => {
+  return `select * from pedidos where hora_fim <> '00:00:00'`;
+};
+
+const readByEntregador = (model) => {
+  return `select * from vw_chegou where id_entregador = ${model.id_entregador} AND hora_fim = '00:00:00'`;
+};
+
+const readEntregador = () => {
   return "select * from vw_chegou";
 };
 
@@ -18,20 +26,22 @@ const readEntregando = () => {
   return "select * from vw_caminho";
 };
 
-const updateEntregando = (id_pedido) => {
-  return `update pedidos set hora_entrega = curtime() where id_pedido = ${id_pedido}`;
+const updateEntregando = (model) => {
+  return `update pedidos set hora_entrega = curtime() where id_pedido = ${model.id_pedido}`;
 };
 
-const updateFim = (dados) => {
-  return `update pedidos set hora_fim = curtime() where id_pedido = ${dados.id_pedido}`;
+const updateFim = (model) => {
+  return `update pedidos set hora_fim = curtime() where id_pedido = ${model.id_pedido}`;
 };
 
 module.exports = {
   create,
-  readAll,
-  readChegou,
+  readAllPendente,
+  readEntregador,
   readEntregando,
   readCozinha,
   updateEntregando,
   updateFim,
+  readByEntregador,
+  readEntregue
 };
