@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ViewllView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 
 export default function Home({ route }) {
