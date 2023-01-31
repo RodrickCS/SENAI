@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, ViewllView } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 
 export default function Home({ route }) {
@@ -34,12 +34,13 @@ export default function Home({ route }) {
   };
 
   return (
-    <View>
-      <Text>Entregas com o</Text>
-      <Text>Entregador : {nome} </Text>
+    <View style={styles.container} >
+      <View style={styles.header} >
+        <Text>Entregas do {nome} </Text>
+      </View>
       {pedidos.map((pedido, index) => {
         return (
-          <View key={index}>
+          <View style={styles.card} key={index}>
             <Text>Cliente : {pedido.cliente}</Text>
             <Text>Endereço : {pedido.endereco}</Text>
             <Text>Produto : {pedido.produto}</Text>
@@ -56,3 +57,60 @@ export default function Home({ route }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    backgroundColor: "#ddd",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+  },
+
+  header: {
+    
+    height: "70px",
+    width: "100%",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "1px solid black",
+  },
+  text: {
+    borderBottomWidth: 2,
+    borderBottomColor: "#000",
+    width: "70%",
+    display: "flex",
+    justifyContent: "center",
+  },
+  Viewll: {
+    width: "70%",
+    height: "100%",
+    backgroundColor: "#ddd",
+    display: "flex",
+    marginTop: "8%",
+  },
+  card: {
+    width: "250px",
+    height: "230px",
+    backgroundColor: "white",
+    border: "1px solid black",
+    marginBottom: "20px",
+    padding: "20px",
+  },
+  button: {
+    width: "200px",
+    height: "30px",
+    backgroundColor: "#33D6C5",
+    borderRadius: "12px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "30px",
+  },
+  input: {
+    border: "1px solid black",
+    borderRadius: 6,
+    margin: "17px",
+  },
+});

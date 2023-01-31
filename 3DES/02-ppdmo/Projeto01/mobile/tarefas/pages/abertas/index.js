@@ -48,7 +48,23 @@ export default function abertas({ navigation }) {
     });
   };
 
+
+  const excluirTarefa = (id) => {
+    fetch("http://localhost:3000/tarefas/excluirTarefa/" + id, {
+      method: "DELETE",
+    }).then((response) => {
+      if (response.status === 200) {
+        console.log("Tarefa excluida");
+
+        listarTarefas();
+      } else {
+        console.log(response.status);
+      }
+    });
+  };
+
   return (
+
     <View>
       <View style={styles.header}>
         <Text style={styles.text}>Tarefas abertas</Text>
@@ -86,26 +102,36 @@ export default function abertas({ navigation }) {
         return (
           <View style={styles.align} key={index}>
             <ScrollView style={styles.card}>
-              <Text style={styles.text}>id: {tarefa.id_tarefa}</Text>
+              <Text style={styles.text}>id: {tarefa.id}</Text>
               <Text style={styles.text}>Descricao: {tarefa.descricao}</Text>
-              <Text style={styles.text}>Horario: {tarefa.horario_tarefa}</Text>
+              <Text style={styles.text}>Horario: {tarefa.horario_tarefa.split("T")[0]}</Text>
               <Text style={styles.text}>Status: {tarefa.status}</Text>
               <View style={styles.buttons}> 
                 <TouchableOpacity
                   onPress={() => {
-                    finalizarTarefa(tarefa.id_tarefa);
+                    finalizarTarefa(tarefa.id);
                   }}
                   style={styles.buttonCard}
                 >
                   <Text style={styles.text}>Finalizar tarefa</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                   onPress={() => {
-                    cancelarTarefa(tarefa.id_tarefa);
+                    cancelarTarefa(tarefa.id);
                   }}
                   style={styles.buttonCard}
                 >
                   <Text style={styles.text}>Cancelar tarefa</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    excluirTarefa(tarefa.id);
+                  }}
+                  style={styles.buttonCard}
+                >
+                  <Text style={styles.text}>Excluir Tarefa</Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
@@ -150,10 +176,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     border: "1px solid black",
-    width: "150px",
+    width: "100px",
   },
   container: {
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     gap: "20px",
     marginTop: "20px",

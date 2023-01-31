@@ -22,6 +22,7 @@ export default function App() {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setPedidos(data);
       });
   };
@@ -51,7 +52,7 @@ export default function App() {
             <View style={styles.card} key={index}>
               <Text>id : {pedido.id_pedido}</Text>
               <Text>Cliente : {pedido.cliente}</Text>
-              <Text>Produto : {pedido.Produto}</Text>
+              <Text>Produto : {pedido.produto}</Text>
               <Text>Endereço : {pedido.endereco}</Text>
               <Text>Data : {date}</Text>
               <Text>Horario : {pedido.hora_pedido}</Text>

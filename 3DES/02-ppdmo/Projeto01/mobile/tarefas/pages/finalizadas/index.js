@@ -26,9 +26,9 @@ export default function finalizadas() {
         return (
           <View style={styles.align}  key={index}>
             <ScrollView style={styles.card}>
-              <Text style={styles.text} >id: {tarefa.id_tarefa}</Text>
+              <Text style={styles.text} >id: {tarefa.id}</Text>
               <Text style={styles.text} >Descricao: {tarefa.descricao}</Text>
-              <Text style={styles.text} >Horario: {tarefa.horario_tarefa}</Text>
+              <Text style={styles.text} >Horario: {tarefa.horario_tarefa.split("T")[0]}</Text>
               <Text style={styles.text} >Horario finalizada: {tarefa.horario_encerramento}</Text>
               <Text style={styles.text} >Status: {tarefa.status}</Text>
             </ScrollView>

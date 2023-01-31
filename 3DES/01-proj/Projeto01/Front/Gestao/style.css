@@ -30,11 +30,11 @@ nav {
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: 70vh;
+  height: 60vh;
   border-radius: 20px;
   background-color: rgb(190, 190, 190);
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
   
 }
 
@@ -92,11 +92,12 @@ nav {
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: 70vh;
+  height: 60vh;
   border-radius: 20px;
   background-color: rgb(190, 190, 190);
   flex-direction: column;
   overflow-y: scroll;
+  margin-bottom: 30px;
 }
 
 .aCaminho {
@@ -134,10 +135,6 @@ main {
   border-radius: 20px;
   background-color: rgb(190, 190, 190);
 }
-
-
-
-  
 
 .left {
   display: flex;

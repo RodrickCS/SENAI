@@ -1,70 +1,66 @@
-const tarefas = require("../models/tarefaModel");
-const con = require("../dao/bdConnect");
+const { PrismaClient } = require("@prisma/client");
 
-const create = (req, res) => {
-  let string = tarefas.create(req.body);
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.status(201).json(result).end();
-    } else {
-      res.status(400).json(err).end();
-    }
+const prisma = new PrismaClient();
+
+const create = async (req, res) => {
+  const tarefas = await prisma.tarefas.create({
+    data: req.body,
   });
+
+  res.status(201).json(tarefas).end();
 };
 
-const readAbertas = (req, res) => {
-  let string = tarefas.readAbertas();
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.json(result).end();
-    } else {
-      res.status(500).json(err).end();
-    }
+const readAbertas = async (req, res) => {
+  const tarefas = await prisma.tarefas.findMany({
+    where: {
+      status: 1,
+    },
   });
+
+  res.status(200).json(tarefas).end();
 };
 
-const readFinalizadas = (req, res) => {
-  let string = tarefas.readFinalizadas();
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.json(result).end();
-    } else {
-      res.status(500).json(err).end();
-    }
+const readFinalizadas = async (req, res) => {
+  const tarefas = await prisma.tarefas.findMany({
+    where: {
+      status: 2,
+    },
   });
+
+  res.status(200).json(tarefas).end();
 };
 
-const readCanceladas = (req, res) => {
-  let string = tarefas.readCanceladas();
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.json(result).end();
-    } else {
-      res.status(500).json(err).end();
-    }
+const readCanceladas = async (req, res) => {
+  const tarefas = await prisma.tarefas.findMany({
+    where: {
+      status: 3,
+    },
   });
+
+  res.status(200).json(tarefas).end();
 };
 
-const finalzarTarefa = (req, res) => {
-  let string = tarefas.finalizaTarefa(req.params);
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.status(200).json(result).end();
-    } else {
-      res.status(500).json(err).end();
-    }
+const finalizarTarefa = async (req, res) => {
+  const funcionario = await prisma.tarefas.update({
+    where: { id: Number(req.params.id) },
+    data: { status: 2 },
   });
+  res.status(200).json(funcionario).end();
 };
 
-const cancelarTarefa = (req, res) => {
-  let string = tarefas.cancelarTarefa(req.params);
-  con.query(string, (err, result) => {
-    if (err == null) {
-      res.status(200).json(result).end();
-    } else {
-      res.status(500).json(err).end();
-    }
+const cancelarTarefa = async (req, res) => {
+  const funcionario = await prisma.tarefas.update({
+    where: { id: Number(req.params.id) },
+    data: { status: 3 },
   });
+  res.status(200).json(funcionario).end();
+};
+
+const excluiTarefa = async (req, res) => {
+  const funcionario = await prisma.tarefas.delete({
+    where: { id: Number(req.params.id) }
+  });
+  res.status(200).json(funcionario).end();
 };
 
 module.exports = {
@@ -72,6 +68,7 @@ module.exports = {
   readAbertas,
   readFinalizadas,
   readCanceladas,
-  finalzarTarefa,
+  finalizarTarefa,
   cancelarTarefa,
+  excluiTarefa,
 };
