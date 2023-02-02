@@ -1,0 +1,12 @@
+	Loja 
+setor
+	-nome
+	-comissão
+produtos
+	-nome
+	-valor
+	-setor
+vendedor
+	-nome
+	-salarios
+-	setor
