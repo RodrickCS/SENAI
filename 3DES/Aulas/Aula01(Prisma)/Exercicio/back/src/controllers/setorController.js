@@ -3,7 +3,15 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const read = async (req, res) => {
-  let setor = await prisma.setor.findMany();
+  let setor = await prisma.setor.findMany({
+    select: {
+      id_setor: true,
+      nome: true,
+      comissao: true,
+      vendedores: true,
+      produtos: true,
+    },
+  });
   res.status(200).json(setor).end();
 };
 
@@ -15,15 +23,14 @@ const create = async (req, res) => {
 };
 
 const readId = async (req, res) => {
-  console.log(req.params);
   let setor = await prisma.setor.findUnique({
     where: {
       id_setor: Number(req.params.id_setor),
     },
     select: {
       nome: true,
-      vendedor: true,
-      produto: true,
+      vendedores: true,
+      produtos: true,
     },
   });
   res.status(200).json(setor).end();
