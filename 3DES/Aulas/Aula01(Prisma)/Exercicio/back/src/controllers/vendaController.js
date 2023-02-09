@@ -28,6 +28,16 @@ const create = async (req, res) => {
   delete info.idProd;
   delete info.quantidade;
 
+  // let venda = await prisma.vendas.create({
+  //   data: {
+  //     data: new Date(),
+  //     idVendedor: info.idVendedor,
+  //     detalhe: {
+  //       create: info.detalhes,
+  //     },
+  //   },
+  // });
+
   let venda = await prisma.vendas.create({
     data: info,
   });
@@ -40,7 +50,12 @@ const create = async (req, res) => {
     },
   });
 
-  res.status(201).json([venda, detalhe]).end();;
+const form = {
+  vendas: venda,
+  detalhe: detalhe,
+}
+
+  res.status(201).json(form).end();
 };
 
 module.exports = {

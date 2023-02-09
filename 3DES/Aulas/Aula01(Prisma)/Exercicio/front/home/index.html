@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body onload="checkIntro()">
+    <header>
+      <nav>
+        <h2>Nome da Loja</h2>
+        <ul id="headerLi">
+          <li><a href="../produtos/index.html"> Gerenciar Produtos</a></li>
+          <li><a href="../setores/index.html"> Gerenciar Setores</a></li>
+          <li><a href="../vendedores/index.html"> Gerenciar vendedores</a></li>
+          <li><a href="../vendedores/index.html"> Fazer uma Nova Venda</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="introducao">
+        <div id="introHeader">
+          <h1>introdução do sistema</h1>
+        </div>
+        <div id="introBody">
+          <p>
+            Este sistema tem como função gerenciar os produtos e outros serviços
+            de uma loja.
+          </p>
+          <br />
+          <p>
+            Ao lado terá um menu com as várias opções de gerenciamento, como:
+          </p>
+          <br />
+          <ul id="introLi">
+            <li>Gerenciar Produtos</li>
+            <li>Gerenciar Setores</li>
+            <li>Gerenciar vendedores</li>
+            <li>Fazer uma Nova Venda</li>
+          </ul>
+          <br />
+          <p>
+            Na sessão Gerenciar Produtos é possivel adicionar novos produtos de
+            acordo com o setor
+          </p>
+          <p>Na sessão Gerenciar Setores é possivel adicionar novos Setores</p>
+          <p>
+            Na sessão Gerenciar Vendedores é possivel adicionar novos vendedores
+          </p>
+          <p>
+            Na sessão Fazer uma Nova Venda é possivel vender os produtos da loja
+          </p>
+        </div>
+        <button onclick="fechaIntro()" id="introButton">Ok</button>
+      </section>
+      <section class="container">
+        <div class="cardModel model">
+          <p id="produto">Produto:</p>
+          <p id="valorProduto">Valor:</p>
+          <p id="setorProduto">Setor Responsável:</p>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="./script.js"></script>
+</html>
