@@ -14,4 +14,18 @@ const create = async (req, res) => {
   res.status(201).json(vendedor).end();
 };
 
-module.exports = { read, create };
+const readId = async (req, res) => {
+  let setor = await prisma.vendedor.findUnique({
+    where: {
+      id_vend: Number(req.params.id_vend),
+    },
+
+    select: {
+      nome: true,
+      Vendas: true,
+    },
+  });
+  res.status(200).json(setor).end();
+};
+
+module.exports = { read, create, readId };
