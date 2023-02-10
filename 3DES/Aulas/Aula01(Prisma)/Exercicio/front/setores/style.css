@@ -129,11 +129,15 @@ body {
 #cadastraBt {
   width: 165px;
 }
-.modelModal {
+.modelModalProd {
   display: none;
   visibility: hidden;
 }
-.modal {
+.modelModalVender {
+  display: none;
+  visibility: hidden;
+}
+.modalProd {
   width: 400px;
   height: 400px;
   border: 1px solid black;
@@ -143,4 +147,18 @@ body {
   align-items: center;
   justify-content: center;
   background-color: white;
+  position: absolute;
+}
+
+.modalVender {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
 }

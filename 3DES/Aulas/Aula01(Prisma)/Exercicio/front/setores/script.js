@@ -1,5 +1,5 @@
-const uriProdutos = "http://localhost:3000/produtos";
-const uriCreateProd = "http://localhost:3000/produtosCreate";
+const uriSetores = "http://localhost:3000/setores";
+const uriCreateSetor = "http://localhost:3000/setoresCreate";
 
 const fechaIntro = () => {
   let item = document.querySelector(".introducao");
@@ -21,7 +21,7 @@ function carregaProdutos() {
   const options = {
     method: "GET",
   };
-  fetch(uriProdutos, options)
+  fetch(uriSetores, options)
     .then((res) => {
       return res.json();
     })
@@ -32,10 +32,10 @@ function carregaProdutos() {
 
         cloned.classList.remove("model");
 
-        cloned.querySelector("#idProd").innerHTML += " " + value.id_prod;
-        cloned.querySelector("#produto").innerHTML += " R$ " + value.nome;
-        cloned.querySelector("#valorProduto").innerHTML += " R$ " + value.valor;
-        cloned.querySelector("#setorProduto").innerHTML += " " + value.setor_id;
+        cloned.querySelector("#idSetor").innerHTML += " " + value.id_setor;
+        cloned.querySelector("#nomeSetor").innerHTML += " " + value.nome;
+        cloned.querySelector("#comissaoSetor").innerHTML += " " +  value.comissao + " % ";
+        
 
         document.querySelector(".container").appendChild(cloned);
 
@@ -44,38 +44,37 @@ function carregaProdutos() {
     });
 }
 
-const cadastrarProd = () => {
+const cadastrarSetor = () => {
   let form = {
-    nome: document.getElementById("nomeProd").value,
-    valor: Number(document.getElementById("valorProd").value),
-    setor_id: Number(document.getElementById("setorProd").value),
+    nome: document.getElementById("setorNome").value,
+    comissao: Number(document.getElementById("setorComissao").value)
   };
 
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(form),
+    body: JSON.stringify(form)
+
   };
 
-  fetch(uriCreateProd, options)
+  fetch(uriCreateSetor, options)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
       if (data.affectedRows === 0) {
-        alert("Produto não cadastrado");
+        alert("Setor não foi criado");
       } else {
-        alert("Produto cadastrado com sucesso");
+        alert("Setor criado com sucesso");
+
         window.location.reload();
       }
     });
 };
 
-function openModalProd() {
+function openModal() {
   document.querySelector(".modal").classList.toggle("modelModal");
 }
-function openModalVenda() {
-  document.querySelector(".modalVender").classList.toggle("modelModalVender");
-}
+
 
 carregaProdutos();

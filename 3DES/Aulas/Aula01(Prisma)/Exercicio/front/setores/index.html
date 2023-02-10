@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Setores</title>
   </head>
   <body onload="checkIntro()">
     <header>
@@ -13,16 +13,13 @@
         <h2>Nome da Loja</h2>
         <ul id="headerLi">
           <li>
-            <button onclick="openModalProd()" class="button">
-              Adicionar um Produto
+            <button onclick="openModal()" class="button">
+              Adicionar um Setor
             </button>
           </li>
           <li>
-            <button onclick="openModalVenda()" class="button">
-              Vender um Produto
-            </button>
+           <li><a href="../home/index.html">voltar a Tela inicial</a></li>
           </li>
-          <li><a href="../setores/index.html">Setores</a></li>
         </ul>
       </nav>
     </header>
@@ -60,25 +57,16 @@
       </section>
       <section class="container">
         <div class="cardModel model">
-          <p id="idProd">id produto:</p>
-          <p id="produto">Produto:</p>
-          <p id="valorProduto">Valor:</p>
-          <p id="setorProduto">Setor Responsável:</p>
+          <p id="idSetor">id setor:</p>
+          <p id="nomeSetor">nome:</p>
+          <p id="comissaoSetor">comissao:</p>
         </div>
       </section>
-      <section class="modalProd modelModalProd">
-        <h1>Criar um Produto</h1>
-        <input type="text" placeholder="nome" id="nomeProd" />
-        <input type="text" placeholder="valor" id="valorProd" />
-        <input type="text" placeholder="setor ID" id="setorProd" />
-        <button id="cadastraBt" onclick="cadastrarProd()" >Criar</button>
-      </section>
-      <section class="modalVender modelModalVender">
-        <h1>Vender um Produto</h1>
-        <input type="text" placeholder="nome" id="nomeProdVender" />
-        <input type="text" placeholder="valor" id="valorProdVender" />
-        <input type="text" placeholder="setor ID" id="setorProdVender" />
-        <button id="cadastraBt" onclick="venderProd()" >Criar</button>
+      <section class="modal modelModal">
+        <h1>Criar um setor</h1>
+        <input type="text" placeholder="nome" id="setorNome" />
+        <input type="text" placeholder="comissao" id="setorComissao" />
+        <button id="cadastraBt" onclick="cadastrarSetor()" >Criar</button>
       </section>
     </main>
   </body>

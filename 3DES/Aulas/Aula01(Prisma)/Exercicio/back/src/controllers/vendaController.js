@@ -21,6 +21,7 @@ const readId = async (req, res) => {
 };
 
 const create = async (req, res) => {
+  
   const originalInfo = req.body;
   originalInfo.data = new Date(req.body.data);
 
@@ -37,7 +38,7 @@ const create = async (req, res) => {
   //     },
   //   },
   // });
-
+  
   let venda = await prisma.vendas.create({
     data: info,
   });
