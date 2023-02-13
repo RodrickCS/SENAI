@@ -20,8 +20,7 @@ const readId = async (req, res) => {
   res.status(200).json(vendas).end();
 };
 
-const create = async (req, res) => {
-  
+const create = async (req, res) => {  
   const originalInfo = req.body;
   originalInfo.data = new Date(req.body.data);
 

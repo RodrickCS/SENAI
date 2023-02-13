@@ -5,18 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setores</title>
+    <title>Vendas</title>
   </head>
   <body onload="checkIntro()">
     <header>
       <nav>
         <h2>Lojinha</h2>
         <ul id="headerLi">
-          <li>
-            <button onclick="openModal()" class="button">
-              Adicionar um Setor
-            </button>
-          </li>
           <li><a href="../home/index.html">voltar a Tela inicial</a></li>
         </ul>
       </nav>
@@ -55,33 +50,11 @@
       </section>
       <section class="container">
         <div class="cardModel model">
-          <p id="idSetor">id setor:</p>
-          <p id="nomeSetor">nome:</p>
-          <p id="comissaoSetor">comissao:</p>
+          <p id="idVenda">id venda:</p>
+          <p id="dataVenda">data:</p>
+          <p id="vendedor">vendedor:</p>
         </div>
       </section>
-      <div class="backModal backModalModel">
-        <section class="modalSetor modelModal">
-          <div class="modalHeader">
-            <h1 style="color: white;" >Criar um setor</h1>
-          </div>
-          <div class="modalBody">
-            <input type="text" placeholder="nome" id="setorNome" />
-            <input type="text" placeholder="comissao" id="setorComissao" />
-          </div>
-          <div class="modalFooter">
-            <button class="modalBt" id="cadastraBt" onclick="cadastrarSetor()">
-              Criar
-            </button>
-            <button class="modalBt" onclick="closeModal()">Cancelar</button>
-          </div>
-        </section>
-      </div>
-      <div id="successModal" class="modalSucc modelSucesso">
-        <div class="modal-content">
-          <h3>Sucesso!</h3>
-          <p>Sua operação foi realizada com sucesso.</p>
-        </div>
       </div>
     </main>
   </body>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setores</title>
+    <title>Vendedores</title>
   </head>
   <body onload="checkIntro()">
     <header>
@@ -14,7 +14,7 @@
         <ul id="headerLi">
           <li>
             <button onclick="openModal()" class="button">
-              Adicionar um Setor
+              Adicionar um Vendedor
             </button>
           </li>
           <li><a href="../home/index.html">voltar a Tela inicial</a></li>
@@ -55,22 +55,24 @@
       </section>
       <section class="container">
         <div class="cardModel model">
-          <p id="idSetor">id setor:</p>
-          <p id="nomeSetor">nome:</p>
-          <p id="comissaoSetor">comissao:</p>
+          <p id="idVendedor">Id Vendedor:</p>
+          <p id="nome">Nome:</p>
+          <p id="salario">Salario:</p>
+          <p id="id_setor">Setor:</p>
         </div>
       </section>
       <div class="backModal backModalModel">
-        <section class="modalSetor modelModal">
+        <section class="modal modelModal">
           <div class="modalHeader">
-            <h1 style="color: white;" >Criar um setor</h1>
+            <h1 style="color: white">Adicionar um vendedor</h1>
           </div>
           <div class="modalBody">
-            <input type="text" placeholder="nome" id="setorNome" />
-            <input type="text" placeholder="comissao" id="setorComissao" />
+            <input type="text" placeholder="nome" id="vendNome" />
+            <input type="text" placeholder="salario" id="vendSalario" />
+            <input type="text" placeholder="setor" id="idSetor" />
           </div>
           <div class="modalFooter">
-            <button class="modalBt" id="cadastraBt" onclick="cadastrarSetor()">
+            <button class="modalBt" id="cadastraBt" onclick="cadastrarVendedor()">
               Criar
             </button>
             <button class="modalBt" onclick="closeModal()">Cancelar</button>

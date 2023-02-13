@@ -1,5 +1,6 @@
 const uriProdutos = "http://localhost:3000/produtos";
 const uriCreateProd = "http://localhost:3000/produtosCreate";
+const uriVenderProd = "http://localhost:3000/vendasCreate";
 
 const fechaIntro = () => {
   let item = document.querySelector(".introducao");
@@ -65,28 +66,65 @@ const cadastrarProd = () => {
       if (data.affectedRows === 0) {
         alert("Produto não cadastrado");
       } else {
-        alert("Produto cadastrado com sucesso");
-        window.location.reload();
+        document.querySelector(".modalSucc").classList.remove("modelSucesso")
+        document.querySelector(".backModal").classList.add("backModalModel")
+        setInterval(modalSucessoClose, 3000);
+      }
+    });
+};
+
+const venderProd = () => {
+  let form = {
+    data: new Date(),
+    idVendedor: Number(localStorage.getItem("id")),
+    idProd: Number(document.getElementById("idProduto").value),
+    quantidade: Number(document.getElementById("qtdProd").value),
+  };
+
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(form),
+  };
+  fetch(uriVenderProd, options)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      if (data !== undefined) {
+        document.querySelector(".backModal").classList.add("backModalModel");
+        document.querySelector(".modalSucc").classList.remove("modelSucesso")
+        setInterval(modalSucessoClose, 3000);
+      } else {
+        alert("Erro ao efetuar a venda");
       }
     });
 };
 
 function openModalProd() {
   document.querySelector(".modalProd").classList.remove("modelModalProd");
-  document.querySelector(".backModal").classList.remove("backModalModel")
+  document.querySelector(".backModal").classList.remove("backModalModel");
 }
 function openModalVenda() {
   document.querySelector(".modalVender").classList.remove("modelModalVender");
-  document.querySelector(".backModal").classList.remove("backModalModel")
+  document.querySelector(".backModal").classList.remove("backModalModel");
 }
 
 function closeModalVenda() {
   document.querySelector(".modalVender").classList.add("modelModalVender");
-  document.querySelector(".backModal").classList.add("backModalModel")
+  document.querySelector(".backModal").classList.add("backModalModel");
 }
 function closeModalProd() {
   document.querySelector(".modalVender").classList.add("modelModalVender");
-  document.querySelector(".backModal").classList.add("backModalModel")
+  document.querySelector(".backModal").classList.add("backModalModel");
 }
+
+function modalSucessoClose() {
+  document.querySelector(".modalSucc").classList.add("modelSucesso")
+  setTimeout(window.location.reload(), 3000);
+}
+
+
+
 
 carregaProdutos();

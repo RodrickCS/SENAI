@@ -10,7 +10,7 @@
   <body onload="checkIntro()">
     <header>
       <nav>
-        <h2>Nome da Loja</h2>
+        <h2>Lojinha</h2>
         <ul id="headerLi">
           <li>
             <button onclick="openModalProd()" class="button">
@@ -23,6 +23,8 @@
             </button>
           </li>
           <li><a href="../setores/index.html">Setores</a></li>
+          <li><a href="../vendas/index.html">Vendas</a></li>
+          <li><a href="../vendedores/index.html">Vendedores</a></li>
         </ul>
       </nav>
     </header>
@@ -77,23 +79,37 @@
             <input type="text" placeholder="setor ID" id="setorProd" />
           </div>
           <div class="modalFooter">
-            <button class="modalBt" id="cadastraBt" onclick="cadastrarProd()">Criar</button>
-            <button class="modalBt" id="cadastraBt" onclick="closeModalProd()">Cancelar</button>
+            <button class="modalBt" id="cadastraBt" onclick="cadastrarProd()">
+              Criar
+            </button>
+            <button class="modalBt" id="cadastraBt" onclick="closeModalProd()">
+              Cancelar
+            </button>
           </div>
         </section>
         <section class="modalVender modelModalVender">
           <div class="modalHeader">
-            <h1 style="color: white;">Vender um Produto</h1>
+            <h1 style="color: white">Vender um Produto</h1>
           </div>
           <div class="modalBody">
-            <input type="text" placeholder="idProd" id="idProd" />
+            <input type="text" placeholder="id produto" id="idProduto" />
             <input type="text" placeholder="Quantidade" id="qtdProd" />
           </div>
           <div class="modalFooter">
-            <button class="modalBt" id="cadastraBt" onclick="cadastrarProd()">Criar</button>
-            <button class="modalBt" id="cadastraBt" onclick="closeModalVenda()">Cancelar</button>
+            <button class="modalBt" id="cadastraBt" onclick="venderProd()">
+              Vender
+            </button>
+            <button class="modalBt" onclick="closeModalVenda()">
+              Cancelar
+            </button>
           </div>
         </section>
+      </div>
+      <div id="successModal" class="modalSucc modelSucesso">
+        <div class="modal-content">
+          <h3>Sucesso!</h3>
+          <p>Sua operação foi realizada com sucesso.</p>
+        </div>
       </div>
     </main>
   </body>

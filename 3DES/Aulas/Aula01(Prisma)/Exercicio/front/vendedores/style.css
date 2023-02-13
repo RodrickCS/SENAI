@@ -150,7 +150,7 @@ body {
   width: 165px;
 }
 
-.modalSetor {
+.modal {
   position: absolute;
   display: flex;
   flex-direction: column;

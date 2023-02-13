@@ -1,5 +1,5 @@
-const uriSetores = "http://localhost:3000/setores";
-const uriCreateSetor = "http://localhost:3000/setoresCreate";
+const uriVendedores = "http://localhost:3000/vendedores";
+const uriVendedoresCreate = "http://localhost:3000/vendedoresCreate";
 
 const fechaIntro = () => {
   let item = document.querySelector(".introducao");
@@ -16,12 +16,12 @@ const checkIntro = () => {
   }
 };
 
-function carregaSetores() {
+function carregaVendedores() {
   let index = 1;
   const options = {
     method: "GET",
   };
-  fetch(uriSetores, options)
+  fetch(uriVendedores, options)
     .then((res) => {
       return res.json();
     })
@@ -32,10 +32,10 @@ function carregaSetores() {
 
         cloned.classList.remove("model");
 
-        cloned.querySelector("#idSetor").innerHTML += " " + value.id_setor;
-        cloned.querySelector("#nomeSetor").innerHTML += " " + value.nome;
-        cloned.querySelector("#comissaoSetor").innerHTML +=
-          " " + value.comissao + " % ";
+        cloned.querySelector("#idVendedor").innerHTML += " " + value.id_vend;
+        cloned.querySelector("#nome").innerHTML += " " + value.nome;
+        cloned.querySelector("#salario").innerHTML += " " + value.salario;
+        cloned.querySelector("#id_setor").innerHTML += " " + value.idSetor;
 
         document.querySelector(".container").appendChild(cloned);
 
@@ -44,10 +44,11 @@ function carregaSetores() {
     });
 }
 
-const cadastrarSetor = () => {
+const cadastrarVendedor = () => {
   let form = {
-    nome: document.getElementById("setorNome").value,
-    comissao: Number(document.getElementById("setorComissao").value),
+    nome: document.getElementById("vendNome").value,
+    salario: Number(document.getElementById("vendSalario").value),
+    idSetor: Number(document.getElementById("idSetor").value),
   };
 
   const options = {
@@ -56,13 +57,13 @@ const cadastrarSetor = () => {
     body: JSON.stringify(form),
   };
 
-  fetch(uriCreateSetor, options)
+  fetch(uriVendedoresCreate, options)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
       if (data.affectedRows === 0) {
-        alert("Setor não foi criado");
+        alert("Vendedor não foi cadastrado");
       } else {
         document.querySelector(".modalSucc").classList.remove("modelSucesso");
         document.querySelector(".backModal").classList.add("backModalModel");
@@ -72,18 +73,17 @@ const cadastrarSetor = () => {
 };
 
 function openModal() {
-  document.querySelector(".modalSetor").classList.remove("modelModal");
+  document.querySelector(".modal").classList.remove("modelModal");
   document.querySelector(".backModal").classList.remove("backModalModel");
 }
 
 function closeModal() {
-  document.querySelector(".modalSetor").classList.add("modelModal");
+  document.querySelector(".modal").classList.add("modelModal");
   document.querySelector(".backModal").classList.add("backModalModel");
 }
 
 function modalSucessoClose() {
-  document.querySelector(".modalSucc").classList.add("modelSucesso");
+  document.querySelector(".modalSucc").classList.add("modelSucesso")
   setTimeout(window.location.reload(), 3000);
 }
-
-carregaSetores();
+carregaVendedores();
