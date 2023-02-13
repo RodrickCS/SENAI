@@ -124,7 +124,4 @@ function modalSucessoClose() {
   setTimeout(window.location.reload(), 3000);
 }
 
-
-
-
 carregaProdutos();
