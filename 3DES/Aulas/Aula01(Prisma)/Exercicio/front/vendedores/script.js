@@ -17,7 +17,6 @@ const checkIntro = () => {
 };
 
 function carregaVendedores() {
-  let index = 1;
   const options = {
     method: "GET",
   };
@@ -28,7 +27,7 @@ function carregaVendedores() {
     .then((data) => {
       Object.entries(data).forEach(([key, value]) => {
         const cloned = document.querySelector(".cardModel").cloneNode(true);
-        cloned.setAttribute("index", index);
+        
 
         cloned.classList.remove("model");
 
@@ -38,8 +37,7 @@ function carregaVendedores() {
         cloned.querySelector("#id_setor").innerHTML += " " + value.idSetor;
 
         document.querySelector(".container").appendChild(cloned);
-
-        index++;
+       
       });
     });
 }
@@ -62,7 +60,7 @@ const cadastrarVendedor = () => {
       return res.json();
     })
     .then((data) => {
-      if (data.affectedRows === 0) {
+      if (data.msg === 'Preencha tudo') {
         alert("Vendedor não foi cadastrado");
       } else {
         document.querySelector(".modalSucc").classList.remove("modelSucesso");

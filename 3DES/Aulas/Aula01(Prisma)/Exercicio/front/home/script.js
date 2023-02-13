@@ -63,7 +63,7 @@ const cadastrarProd = () => {
       return res.json();
     })
     .then((data) => {
-      if (data.affectedRows === 0) {
+      if (data.msg === "Invalid") {
         alert("Produto não cadastrado");
       } else {
         document.querySelector(".modalSucc").classList.remove("modelSucesso")
