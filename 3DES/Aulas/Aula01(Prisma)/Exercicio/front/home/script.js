@@ -3,17 +3,19 @@ const uriCreateProd = "http://localhost:3000/produtosCreate";
 const uriVenderProd = "http://localhost:3000/vendasCreate";
 
 const fechaIntro = () => {
-  let item = document.querySelector(".introducao");
-  item.classList.add("introModel");
+  let intro = document.querySelector(".introducao");
+  intro.classList.add("introModel");
   localStorage.setItem("intro", "closed");
   localStorage.setItem("id", 1);
+  document.querySelector(".container").classList.remove("model");
 };
 
 const checkIntro = () => {
-  let item = document.querySelector(".introducao");
+  let intro = document.querySelector(".introducao");
   let closed = localStorage.getItem("intro");
   if (closed === "closed") {
-    item.classList.add("introModel");
+    intro.classList.add("introModel");
+    document.querySelector(".container").classList.remove("model");
   }
 };
 
@@ -66,8 +68,8 @@ const cadastrarProd = () => {
       if (data.msg === "Invalid") {
         alert("Produto não cadastrado");
       } else {
-        document.querySelector(".modalSucc").classList.remove("modelSucesso")
-        document.querySelector(".backModal").classList.add("backModalModel")
+        document.querySelector(".modalSucc").classList.remove("modelSucesso");
+        document.querySelector(".backModal").classList.add("backModalModel");
         setInterval(modalSucessoClose, 3000);
       }
     });
@@ -93,7 +95,7 @@ const venderProd = () => {
     .then((data) => {
       if (data !== undefined) {
         document.querySelector(".backModal").classList.add("backModalModel");
-        document.querySelector(".modalSucc").classList.remove("modelSucesso")
+        document.querySelector(".modalSucc").classList.remove("modelSucesso");
         setInterval(modalSucessoClose, 3000);
       } else {
         alert("Erro ao efetuar a venda");
@@ -120,7 +122,7 @@ function closeModalProd() {
 }
 
 function modalSucessoClose() {
-  document.querySelector(".modalSucc").classList.add("modelSucesso")
+  document.querySelector(".modalSucc").classList.add("modelSucesso");
   setTimeout(window.location.reload(), 3000);
 }
 
