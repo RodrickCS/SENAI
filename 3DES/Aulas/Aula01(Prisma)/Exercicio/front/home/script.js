@@ -33,7 +33,7 @@ function carregaProdutos() {
         cloned.classList.remove("model");
 
         cloned.querySelector("#idProd").innerHTML += " " + value.id_prod;
-        cloned.querySelector("#produto").innerHTML += " R$ " + value.nome;
+        cloned.querySelector("#produto").innerHTML += " " + value.nome;
         cloned.querySelector("#valorProduto").innerHTML += " R$ " + value.valor;
         cloned.querySelector("#setorProduto").innerHTML += " " + value.setor_id;
 
@@ -72,10 +72,21 @@ const cadastrarProd = () => {
 };
 
 function openModalProd() {
-  document.querySelector(".modal").classList.toggle("modelModal");
+  document.querySelector(".modalProd").classList.remove("modelModalProd");
+  document.querySelector(".backModal").classList.remove("backModalModel")
 }
 function openModalVenda() {
-  document.querySelector(".modalVender").classList.toggle("modelModalVender");
+  document.querySelector(".modalVender").classList.remove("modelModalVender");
+  document.querySelector(".backModal").classList.remove("backModalModel")
+}
+
+function closeModalVenda() {
+  document.querySelector(".modalVender").classList.add("modelModalVender");
+  document.querySelector(".backModal").classList.add("backModalModel")
+}
+function closeModalProd() {
+  document.querySelector(".modalVender").classList.add("modelModalVender");
+  document.querySelector(".backModal").classList.add("backModalModel")
 }
 
 carregaProdutos();

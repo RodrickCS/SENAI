@@ -66,20 +66,35 @@
           <p id="setorProduto">Setor Responsável:</p>
         </div>
       </section>
-      <section class="modalProd modelModalProd">
-        <h1>Criar um Produto</h1>
-        <input type="text" placeholder="nome" id="nomeProd" />
-        <input type="text" placeholder="valor" id="valorProd" />
-        <input type="text" placeholder="setor ID" id="setorProd" />
-        <button id="cadastraBt" onclick="cadastrarProd()" >Criar</button>
-      </section>
-      <section class="modalVender modelModalVender">
-        <h1>Vender um Produto</h1>
-        <input type="text" placeholder="nome" id="nomeProdVender" />
-        <input type="text" placeholder="valor" id="valorProdVender" />
-        <input type="text" placeholder="setor ID" id="setorProdVender" />
-        <button id="cadastraBt" onclick="venderProd()" >Criar</button>
-      </section>
+      <div class="backModal backModalModel">
+        <section class="modalProd modelModalProd">
+          <div class="modalHeader">
+            <h1>Criar um Produto</h1>
+          </div>
+          <div class="modalBody">
+            <input type="text" placeholder="nome" id="nomeProd" />
+            <input type="text" placeholder="valor" id="valorProd" />
+            <input type="text" placeholder="setor ID" id="setorProd" />
+          </div>
+          <div class="modalFooter">
+            <button class="modalBt" id="cadastraBt" onclick="cadastrarProd()">Criar</button>
+            <button class="modalBt" id="cadastraBt" onclick="closeModalProd()">Cancelar</button>
+          </div>
+        </section>
+        <section class="modalVender modelModalVender">
+          <div class="modalHeader">
+            <h1 style="color: white;">Vender um Produto</h1>
+          </div>
+          <div class="modalBody">
+            <input type="text" placeholder="idProd" id="idProd" />
+            <input type="text" placeholder="Quantidade" id="qtdProd" />
+          </div>
+          <div class="modalFooter">
+            <button class="modalBt" id="cadastraBt" onclick="cadastrarProd()">Criar</button>
+            <button class="modalBt" id="cadastraBt" onclick="closeModalVenda()">Cancelar</button>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
   <script src="./script.js"></script>
