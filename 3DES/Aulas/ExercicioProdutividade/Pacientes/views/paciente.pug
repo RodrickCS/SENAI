@@ -1,0 +1,45 @@
+head
+  meta(charset='utf-8')
+  title Avaliação física
+  script(src="../public/script.js") 
+  link(rel='stylesheet' href='style.css')
+body
+header
+  nav 
+    ul 
+      li Avaliação física
+      li 
+        button Novo Paciente
+main
+  form(action="/create" method="POST")
+    label Nome Completo 
+    input(type="text" name="nomeCompleto" id="nomeCompleto" required)
+    label Nascimento
+    input(type="date" name="nascimento" id="nascimento" required)
+    label Peso
+    input(type="text" name="peso" id="peso" required)
+    label Altura
+    input(type="text" name="altura" id="altura" required)
+    input(type="submit" value="Criar" id="btnEntrar")
+  table
+    thead
+      tr
+        th Id 
+        th Nome   
+        th Nascimento   
+        th Peso   
+        th Altura   
+        th Idade   
+        th IMC   
+        th Diagnóstico
+        th Atualizar    
+        th Excluir
+    tbody
+      each paciente in dados
+        tr
+          td=paciente.id
+          td=paciente.nomeCompleto
+          td=paciente.nascimento
+          td=paciente.peso
+          td #{calcular_idade(paciente.nascimento)}
+
