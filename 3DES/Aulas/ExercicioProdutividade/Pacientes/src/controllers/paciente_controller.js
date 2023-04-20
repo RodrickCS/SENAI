@@ -20,7 +20,7 @@ const readVw = async (req, res) => {
       WHEN peso / POWER(altura, 2) < 40 THEN 'Obesidade grau II' 
       ELSE 'Obesidade grau III ou mórbida' 
     END AS diagnostico
-  FROM Paciente;`;    
+  FROM Paciente`;
     return dados;
   } catch (err) {
     res.status(500).json(err).end();

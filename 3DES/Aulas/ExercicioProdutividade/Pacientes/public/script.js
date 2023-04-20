@@ -1,5 +1,5 @@
 const uriDelete = "http://localhost:3000/delete/";
-const uriUpdatePaciente = "http://localhost:3000/update/"
+const uriUpdatePaciente = "http://localhost:3000/update/";
 
 function excluirPaciente(id) {
   const options = {
@@ -21,7 +21,8 @@ function excluirPaciente(id) {
     });
 }
 
-function openModal(btn) {
+function openModalUpdate(btn) {
+  document.querySelector(".modal").classList.remove("model");
   const row = btn.parentNode.parentNode;
   const id = row.cells[0].textContent;
   const nomeCompleto = row.cells[1].textContent;
@@ -62,14 +63,24 @@ function salvarAlteracoes() {
       return response.status;
     })
     .then((data) => {
-     if(data === 200) {
-      window.location.reload();
-     } else {
-      alert("Ocorreu um erro")
-     }
+      if (data === 200) {
+        window.location.reload();
+      } else {
+        alert("Ocorreu um erro");
+      }
     });
 }
 
-function closeModal() {
-  modal.classList.add("model");
+function closeModalUpdate() {
+  document.querySelector(".modal").classList.add("model");
+}
+
+function openModalCreate() {
+  document.querySelector(".backModal").classList.remove("model");
+  document.querySelector(".form").classList.remove("model");
+}
+function closeModalCreate() {
+  document.querySelector(".form").classList.add("model");
+  document.querySelector(".backModal").classList.add("model");
+
 }
