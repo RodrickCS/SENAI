@@ -1,7 +1,7 @@
 head
   meta(charset='utf-8')
   title Avaliação física
-  script(src="../public/script.js") 
+  script(src="script.js") 
   link(rel='stylesheet' href='style.css')
 body
 header
@@ -41,5 +41,34 @@ main
           td=paciente.nomeCompleto
           td=paciente.nascimento
           td=paciente.peso
-          td #{calcular_idade(paciente.nascimento)}
+          td=paciente.altura
+          td=paciente.idade
+          td=paciente.imc
+          td=paciente.diagnostico
+          td
+            button(onclick=`openModal(this)`) *
+          td
+            button(onclick=`excluirPaciente(${paciente.id})`) -
+
+
+  div(class="modal model")
+  div.modal-content
+    h2 Dados do Paciente
+    p
+      strong Id:
+      input#modalId(type="text" disabled)
+    p
+      strong Nome:
+      input#modalNome(type="text")
+    p
+      strong Nascimento:
+      input#modalNascimento(type="date")
+    p
+      strong Peso:
+      input#modalPeso(type="number" step="0.01")
+    p
+      strong Altura:
+      input#modalAltura(type="number" step="0.01")
+    button(onclick="closeModal()") Fechar
+    button(onclick="salvarAlteracoes()") Salvar
 
