@@ -22,7 +22,7 @@ main
       label Altura
       input(type="text" name="altura" id="altura" required)
       input(type="submit" value="Criar" id="btEnviar")
-      button(class="btCancelar" onclick="closeModalCreate()") Fechar
+      button(class="btModal" onclick="closeModalCreate()") Fechar
   table
     thead
       tr
@@ -52,25 +52,24 @@ main
           td(class="hoverTd")
             button(onclick=`excluirPaciente(${paciente.id})`) -
 
-
-  div(class="modal model") 
-    div
-      h2 Dados do Paciente
-      p
-        strong Id:
-        input#modalId(type="text" disabled)
-      p
-        strong Nome:
-        input#modalNome(type="text")
-      p
-        strong Nascimento:
-        input#modalNascimento(type="date")
-      p
-        strong Peso:
-        input#modalPeso(type="number" step="0.01")
-      p
-        strong Altura:
-        input#modalAltura(type="number" step="0.01")
-      button(onclick="closeModalUpdate()") Fechar
-      button(onclick="salvarAlteracoes()") Salvar
+      div(class="backModalUpdate model") 
+        div(class="modal") 
+          h2 Dados do Paciente
+          p
+            strong Id:
+            input#modalId(type="text" disabled)
+          p
+            strong Nome:
+            input#modalNome(type="text")
+          p
+            strong Nascimento:
+            input#modalNascimento(type="date")
+          p
+            strong Peso:
+            input#modalPeso(type="number" step="0.01")
+          p
+            strong Altura:
+            input#modalAltura(type="number" step="0.01")
+          button(class="btModal" onclick="salvarAlteracoes()") Salvar
+          button(class="btModal" onclick="closeModalUpdate()") Fechar
 

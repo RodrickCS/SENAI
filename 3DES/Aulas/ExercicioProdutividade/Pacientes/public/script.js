@@ -22,6 +22,7 @@ function excluirPaciente(id) {
 }
 
 function openModalUpdate(btn) {
+  document.querySelector(".backModalUpdate").classList.remove("model");
   document.querySelector(".modal").classList.remove("model");
   const row = btn.parentNode.parentNode;
   const id = row.cells[0].textContent;
@@ -73,6 +74,8 @@ function salvarAlteracoes() {
 
 function closeModalUpdate() {
   document.querySelector(".modal").classList.add("model");
+  document.querySelector(".backModalUpdate").classList.add("model");
+
 }
 
 function openModalCreate() {
