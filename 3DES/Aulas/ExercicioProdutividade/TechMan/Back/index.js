@@ -4,6 +4,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 
 const usuarioRoutes = require("./src/routes/usuarios_routes");
+const equipamentosRoutes = require("./src/routes/equipamentos_routes");
 
 const app = express();
 app
@@ -12,5 +13,6 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(express.static("public"))
   .use(methodOverride("_method"))
-  .use(usuarioRoutes);
+  .use(usuarioRoutes)
+  .use(equipamentosRoutes);
 app.listen(PORT, () => console.log("Servidor rodando na porta " + PORT));

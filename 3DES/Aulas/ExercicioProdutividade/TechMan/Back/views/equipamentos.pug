@@ -1,7 +1,22 @@
 head
   meta(charset='utf-8')
   title TechMan
-  script(src="login_script.js") 
-  link(rel='stylesheet' href='login_style.css')
+  script(src="equipamentos_script.js") 
+  link(rel='stylesheet' href='equipamentos_style.css')
 body
-  h1 Teste
+  header
+    nav
+      ul 
+        li(class="li1")
+          img(src="./assets/techman.png" alt="")
+      ul 
+        li(class="li2")
+          h2
+            button(class="btNovo" onclick="openModal()") Novo equipamento
+          button(class="btLogout")
+            img(src="./assets/logout_sair.png" alt="")
+  main 
+    each equipamento in dados
+      div(class="container")
+        p(class="headerText")=equipamento.equipamento
+        p(class="descTex")=equipamento.descricao

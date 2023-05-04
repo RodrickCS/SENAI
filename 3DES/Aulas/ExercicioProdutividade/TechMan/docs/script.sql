@@ -79,7 +79,8 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-
+-- CreateView
+CREATE VIEW vw_usuario AS 
 SELECT u.id AS Usuario, u.perfil_id AS Perfil, p.perfil AS Role FROM usuarios u INNER JOIN perfis p
-    ON u.perfil_id = p.id
-     WHERE senha = 313131;
+ON u.perfil_id = p.id
+WHERE senha = 313131;

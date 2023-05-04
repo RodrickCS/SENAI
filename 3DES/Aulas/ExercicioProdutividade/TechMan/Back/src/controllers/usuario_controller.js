@@ -5,10 +5,6 @@ const loadViewLogin = async (req, res) => {
   res.render("login");
 };
 
-const loadViewEquipamentos = async (req, res) => {
-  res.render("equipamentos");
-};
-
 const vw_login = async (req, res) => {
   try {
     let usuario =
@@ -29,5 +25,4 @@ const vw_login = async (req, res) => {
 module.exports = {
   loadViewLogin,
   vw_login,
-  loadViewEquipamentos,
 };
