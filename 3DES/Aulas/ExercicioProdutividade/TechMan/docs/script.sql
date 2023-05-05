@@ -1,3 +1,6 @@
+drop database if exists techman;
+create database techman charset=UTF8 collate utf8_general_ci;
+use techman;
 -- CreateTable
 CREATE TABLE `usuarios` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
@@ -20,7 +23,7 @@ CREATE TABLE `equipamentos` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `equipamento` VARCHAR(191) NOT NULL,
     `imagem` VARCHAR(191) NOT NULL,
-    `descricao` VARCHAR(191) NOT NULL,
+    `descricao` VARCHAR(800) NOT NULL,
     `ativo` INTEGER NOT NULL,
     `data` DATETIME(3) NOT NULL,
 
@@ -83,4 +86,3 @@ IGNORE 1 ROWS;
 CREATE VIEW vw_usuario AS 
 SELECT u.id AS Usuario, u.perfil_id AS Perfil, p.perfil AS Role FROM usuarios u INNER JOIN perfis p
 ON u.perfil_id = p.id
-WHERE senha = 313131;

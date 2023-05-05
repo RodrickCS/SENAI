@@ -1,22 +1,43 @@
-head
-  meta(charset='utf-8')
-  title TechMan
-  script(src="equipamentos_script.js") 
-  link(rel='stylesheet' href='equipamentos_style.css')
-body
-  header
-    nav
-      ul 
-        li(class="li1")
-          img(src="./assets/techman.png" alt="")
-      ul 
-        li(class="li2")
-          h2
-            button(class="btNovo" onclick="openModal()") Novo equipamento
-          button(class="btLogout")
-            img(src="./assets/logout_sair.png" alt="")
-  main 
-    each equipamento in dados
-      div(class="container")
-        p(class="headerText")=equipamento.equipamento
-        p(class="descTex")=equipamento.descricao
+html(lang="pt-BR")
+  head
+    meta(charset='utf-8')
+    title TechMan
+    script(src="equipamentos_script.js") 
+    link(rel='stylesheet' href='equipamentos_style.css')
+  body
+    header
+      nav
+        ul 
+          li(class="li1")
+            img(src="./assets/techman.png" alt="")
+        ul 
+          li(class="li2")
+            h2
+              button(class="btNovo" onclick="openModalCriar()") Novo equipamento
+            button(class="btLogout" onclick="logout()")
+              img(src="./assets/logout_sair.png" alt="")
+    main  
+      each equipamento in dados
+        div(class="container")
+          div(class="imgContainer")
+          p(class="headerText")=equipamento.equipamento
+          p(class="descTex")=equipamento.descricao
+          button(class="btnContainer") 
+            img(src="./assets/comentario.png", alt="")
+          button(class="btnContainer")
+            img(src="./assets/deletar.png", alt="")
+
+      div(class="backModal model")
+        div(class="modalCriarEquipamento model")
+          h2 Cadastro de equipamento
+          button(class="btClose" onclick="closeModalCriar()")  x
+          input(type="text" class="smallInp inpNome" placeholder="Nome")  
+          input(type="text" class="smallInp inpImagem" placeholder="Endereço da imagem")
+          textArea(class="largeInp inpDescricao"  placeholder="Descrição")
+          div 
+            input(type="checkbox" id="checkAtivo")
+            label(for="checkAtivo") Ativo 
+          button(class="modalBt" onclick="criarEquipamento()") Cadastrar
+
+          
+

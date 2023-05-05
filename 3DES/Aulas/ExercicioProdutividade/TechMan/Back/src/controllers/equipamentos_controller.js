@@ -3,12 +3,7 @@ const prisma = new PrismaClient();
 
 const loadViewEquipamentos = async (req, res) => {
   let dados = await ler();
-  dados = dados.map(dado => {
-    dado.equipamento = decodeURIComponent(dado.equipamento);
-    dado.descricao = decodeURIComponent(dado.descricao);
-
-    return dado;
-  });
+  res.set('Content-Type', 'text/html; charset=UTF-8');
   res.render("equipamentos", { dados });
 };
 
@@ -20,6 +15,7 @@ const criar = async (req, res) => {
     res.status(201).json(equip).end();
   } catch (err) {
     res.status(500).json(err).end();
+    console.log(err)
   }
 };
 
