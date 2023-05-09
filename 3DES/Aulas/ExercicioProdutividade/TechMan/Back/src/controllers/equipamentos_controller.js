@@ -29,11 +29,10 @@ const ler = async (req, res) => {
 };
 const lerComentarios = async (req, res) => {
   try {
-    let equip = await prisma.comentarios.findMany({
-      where: {
-        equipamento: Number(req.params.id),
-      },
-    });
+    let equip = await prisma.$queryRaw`SELECT c.perfil AS id_user, p.perfil ,c.equipamento, c.comentario, c.data FROM comentarios c 
+    INNER JOIN perfis p
+    ON c.perfil = p.id
+    WHERE equipamento = ${req.params.id}`
     res.status(200).json(equip).end();
   } catch (err) {
     res.status(500).json(err).end();

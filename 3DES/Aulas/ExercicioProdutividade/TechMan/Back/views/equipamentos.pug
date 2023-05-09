@@ -21,11 +21,11 @@ html(lang="pt-BR")
         div(class="container")
           div(class="imgContainer")
           p(class="headerText")=equipamento.equipamento
-          p(class="descTex")=equipamento.descricao
-          button(class="btnContainer") 
-            img(src="./assets/comentario.png", alt="")
+          p(class="descText")=equipamento.descricao
+          button(class="btnContainer" onclick=`fetchComentarios(${equipamento.id})`)
+            img(src="./assets/comentario.png" alt="")
           button(class="btnContainer")
-            img(src="./assets/deletar.png", alt="")
+            img(src="./assets/deletar.png" alt="")
 
       div(class="backModal model")
         div(class="modalCriarEquipamento model")
@@ -33,11 +33,26 @@ html(lang="pt-BR")
           button(class="btClose" onclick="closeModalCriar()")  x
           input(type="text" class="smallInp inpNome" placeholder="Nome")  
           input(type="text" class="smallInp inpImagem" placeholder="Endereço da imagem")
-          textArea(class="largeInp inpDescricao"  placeholder="Descrição")
+          textArea(class="largeInp inpDescricao" placeholder="Descrição")
           div 
             input(type="checkbox" id="checkAtivo")
-            label(for="checkAtivo") Ativo 
+            label(for="checkAtivo") Ativo
           button(class="modalBt" onclick="criarEquipamento()") Cadastrar
 
-          
+        div(class="modalComentarios model")
+          div(class="modalComentarioHeader")
+            h2(style="color: #3b7c80; font-size: 30px; ")  Comentários
+            button(class="btClose" onclick="closeModalComentarios()")  x
+          div(class="modalComentarioBody")
+
+          div(class="modalComentarioFooter")
+            button(class="modalBt" onclick="openModalCriarComentario()") Adicionar comentário
+
+        div(class="modalCriarComentario model")
+          h2(style="color: #3b7c80; font-size: 30px; ")  Cadastro de comentário
+          button(class="btClose" onclick="closeModalCriarComentario()")  x
+
+          input(class="largeInp" id="inpComentario" placeholder="Comentário")
+
+          button(class="modalBt" onclick="cadastrarComentario()") Cadastrar
 

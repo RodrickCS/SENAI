@@ -84,5 +84,13 @@ IGNORE 1 ROWS;
 
 -- CreateView
 CREATE VIEW vw_usuario AS 
-SELECT u.id AS Usuario, u.perfil_id AS Perfil, p.perfil AS Role FROM usuarios u INNER JOIN perfis p
-ON u.perfil_id = p.id
+SELECT u.id AS Usuario, u.perfil_id AS Perfil, p.perfil AS Role FROM usuarios u 
+INNER JOIN perfis p
+ON u.perfil_id = p.id;
+
+--CreateView
+CREATE VIEW vw_comentarios AS
+SELECT c.perfil, p.perfil ,c.equipamento, c.comentario, c.data FROM comentarios c 
+INNER JOIN perfis p
+ON c.perfil = p.id
+WHERE c.equipamento = 5;

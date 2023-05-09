@@ -10,9 +10,27 @@ function clearInput() {
 
 function submitForm() {
   var passwordInput = document.getElementById("senha");
-  if (passwordInput.value.length == 0) {
-    return;
-  }
-  var form = document.getElementsByClassName("form")[0];
-  form.submit();
+
+  fetch("/entrar", {
+    method: "POST",
+    body: JSON.stringify({
+      senha: passwordInput.value
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      if (data.length > 0)
+        data.forEach(dado => {
+          localStorage.setItem("info", JSON.stringify(dado));
+          window.location.href = "/equipamentos"
+        });
+        else
+          alert("Ocorreu um erro")
+    })
+
 }

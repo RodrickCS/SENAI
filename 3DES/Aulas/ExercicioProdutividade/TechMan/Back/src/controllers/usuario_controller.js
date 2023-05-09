@@ -13,9 +13,9 @@ const vw_login = async (req, res) => {
        WHERE senha = ${req.body.senha}`;
 
     if (usuario.length === 0) {
-      res.redirect("/login");
+      res.status(404).end()
     } else {
-      res.redirect("equipamentos");
+      res.status(200).json(usuario).end()
     }
   } catch (err) {
     res.status(500).json(err).end();
