@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE `usuarios` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `senha` DOUBLE NOT NULL,
+    `senha` INTEGER NOT NULL,
     `perfil_id` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
@@ -45,4 +45,4 @@ ALTER TABLE `usuarios` ADD CONSTRAINT `usuarios_perfil_id_fkey` FOREIGN KEY (`pe
 ALTER TABLE `comentarios` ADD CONSTRAINT `comentarios_perfil_fkey` FOREIGN KEY (`perfil`) REFERENCES `perfis`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `comentarios` ADD CONSTRAINT `comentarios_equipamento_fkey` FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `comentarios` ADD CONSTRAINT `comentarios_equipamento_fkey` FOREIGN KEY (`equipamento`) REFERENCES `equipamentos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

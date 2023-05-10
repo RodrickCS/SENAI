@@ -8,5 +8,6 @@ router.get("/equipamentos", equipamentos.loadViewEquipamentos);
 router.get("/equipamentos/readComments/:id", equipamentos.lerComentarios);
 router.post("/equipamentos/create", equipamentos.criar);
 router.post("/equipamentos/addComment", equipamentos.addComentario);
+router.delete("/equipamentos/excluir/:id", equipamentos.removerEquipamento)
 
 module.exports = router;

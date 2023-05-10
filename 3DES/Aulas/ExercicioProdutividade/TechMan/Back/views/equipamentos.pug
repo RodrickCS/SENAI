@@ -2,7 +2,7 @@ html(lang="pt-BR")
   head
     meta(charset='utf-8')
     title TechMan
-    script(src="equipamentos_script.js") 
+
     link(rel='stylesheet' href='equipamentos_style.css')
   body
     header
@@ -17,15 +17,19 @@ html(lang="pt-BR")
             button(class="btLogout" onclick="logout()")
               img(src="./assets/logout_sair.png" alt="")
     main  
-      each equipamento in dados
-        div(class="container")
-          div(class="imgContainer")
+     each equipamento in dados
+      div(class="container")
+        div(class="imgContainer")
+          img(src=equipamento.imagem, class="imagemContainer" alt="Imagem")
+        div(class="containerBody") 
           p(class="headerText")=equipamento.equipamento
           p(class="descText")=equipamento.descricao
-          button(class="btnContainer" onclick=`fetchComentarios(${equipamento.id})`)
-            img(src="./assets/comentario.png" alt="")
-          button(class="btnContainer")
-            img(src="./assets/deletar.png" alt="")
+          div(class="containerButtons")
+            button(class="btnContainer" onclick=`fetchComentarios(${equipamento.id})`)
+              img(src="./assets/comentario.png" alt="")
+            button(class="btnContainer btExcluir model" onclick=`excluirEquipamento(${equipamento.id})`)
+              img(src="./assets/deletar.png" alt="")
+
 
       div(class="backModal model")
         div(class="modalCriarEquipamento model")
@@ -56,3 +60,12 @@ html(lang="pt-BR")
 
           button(class="modalBt" onclick="cadastrarComentario()") Cadastrar
 
+        div(class="modalConfirm model")
+          h2(style="color: #3b7c80; font-size: 30px; ")  Exclusão de equipamento
+          button(class="btClose" onclick="closeModalComentarios()")  x
+
+          p Atenção! Tem certeza que deseja excluir o equipamento? Essa ação não poderá ser desfeita.
+
+          button(class="btConfirm" onclick="confirmar()") Excluir
+
+script(src="equipamentos_script.js") 

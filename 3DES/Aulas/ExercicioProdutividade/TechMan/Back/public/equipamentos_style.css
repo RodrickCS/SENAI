@@ -56,12 +56,24 @@ ul li {
 }
 
 .container {
+  display: flex;
   width: 90%;
   height: fit-content;
   border-bottom: 1px solid black;
   margin: 20px;
+  gap: 10px;
   font-size: 20px;
 }
+.imagemContainer {
+  width: 260px;
+}
+
+.containerBody {
+  display: flex; 
+  flex-direction: column;
+}
+
+
 
 .btnContainer {
   background: none;
@@ -117,6 +129,10 @@ ul li {
   gap: 70px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .modalComentarios {
   position: relative;
   display: flex;
@@ -126,6 +142,20 @@ ul li {
   width: 50%;
   padding: 20px;
   gap: 30px;
+}
+.modalConfirm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 60%;
+  width: 50%;
+  padding: 20px;
+  gap: 30px;
+}
+
+.modalComentarioBody{
+  overflow: auto;
 }
 
 input[type="text"] {
