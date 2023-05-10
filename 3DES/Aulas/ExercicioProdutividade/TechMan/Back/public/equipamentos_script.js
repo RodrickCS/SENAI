@@ -6,26 +6,26 @@ const uriExcluirEquipamento = "http://localhost:80/equipamentos/excluir/"
 var idEquipamento
 
 function checkUser() {
-  let info = JSON.parse(localStorage.getItem('info'));
-  let role = info.Role;
-  let buttonsExcluir = document.querySelectorAll(".btExcluir");
-  let buttonsNovo = document.querySelectorAll(".btNovo");
+  let info = JSON.parse(localStorage.getItem('info'))
+  let role = info.Role
+  let buttonsExcluir = document.querySelectorAll(".btExcluir")
+  let buttonsNovo = document.querySelectorAll(".btNovo")
 
   buttonsExcluir.forEach((button) => {
     if (role === "Administrador") {
-      button.classList.remove("model");
+      button.classList.remove("model")
     } else {
-      button.classList.add("model");
+      button.classList.add("model")
     }
-  });
+  })
 
   buttonsNovo.forEach((button) => {
     if (role === "Administrador") {
-      button.classList.remove("model");
+      button.classList.remove("model")
     } else {
-      button.classList.add("model");
+      button.classList.add("model")
     }
-  });
+  })
 }
 
 function openModalCriar() {
