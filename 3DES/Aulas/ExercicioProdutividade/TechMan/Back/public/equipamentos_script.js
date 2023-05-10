@@ -1,88 +1,87 @@
-const uriCreateEquipamento = "http://localhost:80/equipamentos/create"
-const uriGetComentarios = "http://localhost:80/equipamentos/readComments/"
-const uriCreateComentarios = "http://localhost:80/equipamentos/addComment"
-const uriExcluirEquipamento = "http://localhost:80/equipamentos/excluir/"
+const uriCreateEquipamento = "http://localhost:3000/equipamentos/create";
+const uriGetComentarios = "http://localhost:3000/equipamentos/readComments/";
+const uriCreateComentarios = "http://localhost:3000/equipamentos/addComment";
+const uriExcluirEquipamento = "http://localhost:3000/equipamentos/excluir/";
 
-var idEquipamento
+var idEquipamento;
 
 function checkUser() {
-  let info = JSON.parse(localStorage.getItem('info'))
-  let role = info.Role
-  let buttonsExcluir = document.querySelectorAll(".btExcluir")
-  let buttonsNovo = document.querySelectorAll(".btNovo")
+  let info = JSON.parse(localStorage.getItem("info"));
+  let role = info.Role;
+  let buttonsExcluir = document.querySelectorAll(".btExcluir");
+  let buttonsNovo = document.querySelectorAll(".btNovo");
 
   buttonsExcluir.forEach((button) => {
     if (role === "Administrador") {
-      button.classList.remove("model")
+      button.classList.remove("model");
     } else {
-      button.classList.add("model")
+      button.classList.add("model");
     }
-  })
+  });
 
   buttonsNovo.forEach((button) => {
     if (role === "Administrador") {
-      button.classList.remove("model")
+      button.classList.remove("model");
     } else {
-      button.classList.add("model")
+      button.classList.add("model");
     }
-  })
+  });
 }
 
 function openModalCriar() {
-  document.querySelector(".backModal").classList.remove("model")
-  document.querySelector(".modalCriarEquipamento").classList.remove("model")
+  document.querySelector(".backModal").classList.remove("model");
+  document.querySelector(".modalCriarEquipamento").classList.remove("model");
 }
 
 function openModalCriarComentario() {
-  document.querySelector(".backModal").classList.remove("model")
-  document.querySelector(".modalCriarComentario").classList.remove("model")
-  document.querySelector(".modalComentarios").classList.add("model")
+  document.querySelector(".backModal").classList.remove("model");
+  document.querySelector(".modalCriarComentario").classList.remove("model");
+  document.querySelector(".modalComentarios").classList.add("model");
 }
 
 function closeModalCriarComentario() {
-  document.querySelector(".backModal").classList.add("model")
-  document.querySelector(".modalCriarComentario").classList.add("model")
+  document.querySelector(".backModal").classList.add("model");
+  document.querySelector(".modalCriarComentario").classList.add("model");
 }
 
 function openModalComentarios() {
-  document.querySelector(".backModal").classList.remove("model")
-  document.querySelector(".modalComentarios").classList.remove("model")
-
+  document.querySelector(".backModal").classList.remove("model");
+  document.querySelector(".modalComentarios").classList.remove("model");
 }
 
 function closeModalComentarios() {
-  document.querySelector(".backModal").classList.add("model")
-  document.querySelector(".modalComentarios").classList.add("model")
+  document.querySelector(".backModal").classList.add("model");
+  document.querySelector(".modalComentarios").classList.add("model");
 }
 
 function closeModalCriar() {
-  document.querySelector(".backModal").classList.add("model")
-  document.querySelector(".modalCriarEquipamento").classList.add("model")
+  document.querySelector(".backModal").classList.add("model");
+  document.querySelector(".modalCriarEquipamento").classList.add("model");
 }
 
 function openModalConfirm() {
-  document.querySelector(".backModal").classList.remove("model")
-  document.querySelector(".modalConfirm").classList.remove("model")
+  document.querySelector(".backModal").classList.remove("model");
+  document.querySelector(".modalConfirm").classList.remove("model");
 }
 
 function closeModalConfirm() {
-  document.querySelector(".backModal").classList.add("model")
-  document.querySelector(".modalConfirm").classList.add("model")
+  document.querySelector(".backModal").classList.add("model");
+  document.querySelector(".modalConfirm").classList.add("model");
 }
 
 function logout() {
-  window.location.href = "http://localhost/"
+  window.location.href = "http://localhost:3000/";
 }
 
 function criarEquipamento() {
-  var inputNome = document.querySelector(".inpNome").value
-  var inputImagem = document.querySelector(".inpImagem").value
-  var inputDescricao = document.querySelector(".inpDescricao").value
-  var inpCheckBox = 0
+  var inputNome = document.querySelector(".inpNome").value;
+  var inputImagem = document.querySelector(".inpImagem").value;
+  var inputDescricao = document.querySelector(".inpDescricao").value;
+  var inpCheckBox = 0;
 
-  var checkBox = document.querySelector("#checkAtivo")
+  var checkBox = document.querySelector("#checkAtivo");
 
-  checkBox.checked ? (inpCheckBox = 1) : inpCheckBox === 0
+  checkBox.checked ? (inpCheckBox = 1) : inpCheckBox === 0;
 
   let form = {
     equipamento: inputNome,
@@ -90,7 +89,7 @@ function criarEquipamento() {
     descricao: inputDescricao,
     ativo: inpCheckBox,
     data: new Date(),
-  }
+  };
 
   const options = {
     method: "POST",
@@ -98,91 +97,84 @@ function criarEquipamento() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(form),
-  }
+  };
 
   fetch(uriCreateEquipamento, options)
     .then((resp) => {
-      return resp.status
+      return resp.status;
     })
     .then((data) => {
       if (data === 201) {
-        window.location.reload()
+        window.location.reload();
       }
-    })
+    });
 }
 
 function fetchComentarios(id) {
-  idEquipamento = id
+  idEquipamento = id;
   const options = {
     method: "GET",
-  }
+  };
 
   fetch(uriGetComentarios + id, options)
-    .then(resp => {
-      return resp.json()
+    .then((resp) => {
+      return resp.json();
     })
-    .then(data => {
-      data.forEach(dado => {
-        console.log(dado)
-      })
-      console.log(idEquipamento)
+    .then((data) => {
+      data.forEach((dado) => {});
 
-      openModalComentarios()
-      buildComentarios(data)
-    })
+      openModalComentarios();
+      buildComentarios(data);
+    });
 }
 
-
 function buildComentarios(dados) {
-  const modalComentarioBody = document.querySelector(".modalComentarioBody")
+  const modalComentarioBody = document.querySelector(".modalComentarioBody");
 
   while (modalComentarioBody.firstChild) {
-    modalComentarioBody.removeChild(modalComentarioBody.firstChild)
+    modalComentarioBody.removeChild(modalComentarioBody.firstChild);
   }
 
-  dados.forEach(comentario => {
+  dados.forEach((comentario) => {
+    const data = new Date(comentario.data);
+    const dataFormatada = data.toLocaleDateString("pt-BR");
 
-    const data = new Date(comentario.data)
-    const dataFormatada = data.toLocaleDateString("pt-BR")
+    let div = document.createElement("div");
+    let h2 = document.createElement("h2");
+    let p = document.createElement("p");
 
+    div.style.borderBottom = "1px solid black";
+    div.style.padding = "12px";
+    div.style.gap = "12px";
+    h2.classList.add("headerText");
+    p.classList.add("descText");
 
-    let div = document.createElement("div")
-    let h2 = document.createElement("h2")
-    let p = document.createElement("p")
+    h2.innerHTML = comentario.perfil + " - " + dataFormatada;
+    p.innerHTML = comentario.comentario;
 
-    div.style.borderBottom = "1px solid black"
-    div.style.padding = "12px"
-    div.style.gap = "12px"
-    h2.classList.add("headerText")
-    p.classList.add("descText")
+    div.appendChild(h2);
+    div.appendChild(p);
 
-    h2.innerHTML = comentario.perfil + " - " + dataFormatada
-    p.innerHTML = comentario.comentario
-
-    div.appendChild(h2)
-    div.appendChild(p)
-
-    modalComentarioBody.appendChild(div)
-  })
+    modalComentarioBody.appendChild(div);
+  });
 }
 
 function cadastrarComentario() {
-  const data = new Date()
-  const dataBrasilia = new Date(data.getTime() - (3 * 60 * 60 * 1000))
-  const dataIso = dataBrasilia.toISOString()
+  const data = new Date();
+  const dataBrasilia = new Date(data.getTime() - 3 * 60 * 60 * 1000);
+  const dataIso = dataBrasilia.toISOString();
 
-
-  let comentario = document.querySelector("#inpComentario").value
-  let info = JSON.parse(localStorage.getItem("info"))
+  let comentario = document.querySelector("#inpComentario").value;
+  let info = JSON.parse(localStorage.getItem("info"));
 
   let form = {
     comentario: comentario,
     equipamento: idEquipamento,
     perfil: info.Perfil,
-    data: dataIso
-  }
+    data: dataIso,
+  };
 
-  console.log(form)
+  console.log(form);
 
   const options = {
     method: "POST",
@@ -190,17 +182,19 @@ function cadastrarComentario() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(form),
-  }
+  };
 
   fetch(uriCreateComentarios, options)
-    .then(resp => { return resp.status })
-    .then(data => {
-      if (data === 201) {
-        window.location.reload()
-      } else {
-        alert("Ocorreu um erro")
-      }
+    .then((resp) => {
+      return resp.status;
     })
+    .then((data) => {
+      if (data === 201) {
+        window.location.reload();
+      } else {
+        alert("Ocorreu um erro");
+      }
+    });
 }
 
 function excluirEquipamento(id) {
@@ -210,18 +204,20 @@ function excluirEquipamento(id) {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    };
 
     fetch(uriExcluirEquipamento + id, options)
-      .then(resp => { return resp.status })
-      .then(data => {
-        if (data === 204) {
-          window.location.reload()
-        } else {
-          alert("Ocorreu um erro")
-        }
+      .then((resp) => {
+        return resp.status;
       })
+      .then((data) => {
+        if (data === 204) {
+          window.location.reload();
+        } else {
+          alert("Ocorreu um erro");
+        }
+      });
   }
 }
 
-checkUser()
+checkUser();

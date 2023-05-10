@@ -24,7 +24,7 @@ CREATE TABLE `equipamentos` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `equipamento` VARCHAR(191) NOT NULL,
     `imagem` VARCHAR(191) NOT NULL,
-    `descricao` VARCHAR(900) NOT NULL,
+    `descricao` VARCHAR(5000) NOT NULL,
     `ativo` INTEGER NOT NULL,
     `data` DATETIME(3) NOT NULL,
 
@@ -53,7 +53,7 @@ ALTER TABLE `comentarios` ADD CONSTRAINT `comentarios_equipamento_fkey` FOREIGN 
 
 
 -- AddData
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/perfis.csv'
+LOAD DATA INFILE 'C:/Users/Rodrigo/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/perfis.csv'
 INTO TABLE perfis
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -61,7 +61,7 @@ LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
 -- AddData
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/usuarios.csv'
+LOAD DATA INFILE 'C:/Users/Rodrigo/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/usuarios.csv'
 INTO TABLE usuarios
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -69,7 +69,7 @@ LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
 -- AddData
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/equipamentos.csv'
+LOAD DATA INFILE 'C:/Users/Rodrigo/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/equipamentos.csv'
 INTO TABLE equipamentos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -77,7 +77,7 @@ LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
 -- AddData
-LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/comentarios.csv'
+LOAD DATA INFILE 'C:/Users/Rodrigo/Desktop/SENAI/3DES/Aulas/ExercicioProdutividade/TechMan/docs/csv/comentarios.csv'
 INTO TABLE comentarios
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
