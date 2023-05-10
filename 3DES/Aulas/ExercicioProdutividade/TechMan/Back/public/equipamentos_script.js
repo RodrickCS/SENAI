@@ -28,8 +28,6 @@ function checkUser() {
   });
 }
 
-
-
 function openModalCriar() {
   document.querySelector(".backModal").classList.remove("model")
   document.querySelector(".modalCriarEquipamento").classList.remove("model")
@@ -71,7 +69,6 @@ function closeModalConfirm() {
   document.querySelector(".backModal").classList.add("model")
   document.querySelector(".modalConfirm").classList.add("model")
 }
-
 
 function logout() {
   window.location.href = "http://localhost/"
